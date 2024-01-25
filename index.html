@@ -1,781 +1,645 @@
 <html lang="en"><head>
-<head>
-  <meta charset="UTF-8">
-  <meta property="og:title" content="ArtemisiaDB">
-  <meta property="og:description" content="A curated database containing chemical information of secondary metabolites isolated from Artemesia L. species.">
-  <meta property="og:image" content="https://raw.githubusercontent.com/yboulaamane/ArtemisiaDB/main/thumbnail.png">
-  <meta name="keywords" content="artemisia, database, natural products">
-  <meta name="author" content="Yassir Boulaamane">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="https://raw.githubusercontent.com/yboulaamane/ArtemisiaDB/main/fav.ico" type="image/x-icon">  
-
-
-</head>
-  
-  
-</body>
-
-
-  <title>ArtemisiaDB</title>
-  
-  
-  
-  
-<style>
-table {
-  border-collapse: collapse;
-  border-radius: 5px;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.25);
-  overflow: hidden;
-  font-family: "Quicksand", sans-serif;
-  font-weight: bold;
-  font-size: 14px;
-}
-
-th {
-  background: #59a317;
-  color: #ffffff;
-  text-align: left;
-}
-
-th,
-td {
-  padding: 10px 20px;
-}
-
-tr:nth-child(even) {
-  background: #eeeeee;
-}
-</style>
-
-  <script>
-  window.console = window.console || function(t) {};
-</script>
-
-  
-  
-  <script>
-  if (document.location.search.match(/type=embed/gi)) {
-    window.parent.postMessage("resize", "*");
-  }
-</script>
-
-
-</head>
-
- <title>ArtemisiaDB</title>
-
- 
+    <head>
+      <meta charset="UTF-8">
+      <meta property="og:title" content="ArtemisiaDB">
+      <meta property="og:description" content="A curated database containing chemical information of secondary metabolites isolated from Artemesia L. species.">
+      <meta property="og:image" content="https://raw.githubusercontent.com/yboulaamane/ArtemisiaDB/main/thumbnail.png">
+      <meta name="keywords" content="artemisia, database, natural products">
+      <meta name="author" content="Yassir Boulaamane">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="shortcut icon" href="https://raw.githubusercontent.com/yboulaamane/ArtemisiaDB/main/fav.ico" type="image/x-icon">  
+      <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
     
-   <img src="https://raw.githubusercontent.com/yboulaamane/ArtemisiaDB/main/header.png">
-<p style="font-family:Arial;" "text-align: justify;" font=Arial> Artemisia is a large, diverse genus of of small herbs and shrubs with between 200 and 400 species belonging to the Asteraceae family. Due to the wide spectrum of pharmacological activities owing to the presence of several secondary metabolites, Artemisia has been used as traditional medicine since ancient times as an anthelmintic, antispasmodic, antirheumatic, and antibacterial agent and for the treatment of malaria, hepatitis, cancer, inflammation, and menstrual-related disorders. Recently, its extracts displayed promising antiviral properties against Covid-19. To help accelerate drug discovery, ArtemisiaDB was created to serve as an additional asset for high-throughput virtual screening compaigns. <br /></p>
-<p style="font-family:Arial;" "text-align: justify;" font=Arial> Download the whole database: <a href="https://github.com/yboulaamane/ArtemisiaDB/raw/main/ArtemisiaDB.sdf"> SDF Format </a> </p> 
-
-<body translate="no">
-  
-
     
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>ArtemisiaDB</title>
     
-     <div style="overflow-x:auto;">
-        <table id="csvRoot">
-            <thead>
-                <tr>
-                    <th>Compound name</th><th>PubChem ID</th><th>ADB ID</th><th>Smiles</th><th>Medicinal&nbsp;plant</th><th></th><th>Total&nbsp;Molweight</th><th>cLogP</th><th>cLogS</th><th>H-&nbsp;Acceptors</th><th>H-&nbsp;Donors</th><th>Polar&nbsp;Surface&nbsp;Area</th><th>Molecular Formula</th><th>InChI-Key</th><th>References</th>
-                </tr>
-            </thead>
-        
-            <tbody>
+    </head>
+      
+    
+    <body translate="no">
+    
+     <title>ArtemisiaDB</title>
+    
+     
+       <img src="https://raw.githubusercontent.com/yboulaamane/ArtemisiaDB/main/header.png">
+    <p style="font-family:Times New Roman;" "text-align: justify;" font=Times New Roman> Artemisia is a large, diverse genus of of small herbs and shrubs with between 200 and 400 species belonging to the Asteraceae family. Due to the wide spectrum of pharmacological activities owing to the presence of several secondary metabolites, Artemisia has been used as traditional medicine since ancient times as an anthelmintic, antispasmodic, antirheumatic, and antibacterial agent and for the treatment of malaria, hepatitis, cancer, inflammation, and menstrual-related disorders. Recently, its extracts displayed promising antiviral properties against Covid-19. To help accelerate drug discovery, ArtemisiaDB was created to serve as an additional asset for high-throughput virtual screening compaigns. <br /></p>
+    <p style="font-family:Times New Roman; text-align: justify;" font=Times New Roman> Download the whole database: <a href="https://github.com/yboulaamane/ArtemisiaDB/raw/main/ArtemisiaDB.sdf"><button>Download SDF</button></a> </p> 
+    <body translate="no">
+    
+    
+    
+        <p style="font-family:Times New Roman; text-align: justify;"><strong>Component Browser:</strong></p>
+    
+        <div style="overflow-x:auto;">
+            <table id="coumarinTable" class="display">
+                <thead>
+                    <tr>
+                        <th>Compound name</th>
+                        <th>PubChem ID</th>
+                        <th>ADB ID</th>
+                        <th>Smiles</th>
+                        <th>Medicinal&nbsp;plant</th>
+                        <th></th>
+                        <th>Total&nbsp;Molweight</th>
+                        <th>cLogP</th>
+                        <th>cLogS</th>
+                        <th>H-&nbsp;Acceptors</th>
+                        <th>H-&nbsp;Donors</th>
+                        <th>Polar&nbsp;Surface&nbsp;Area</th>
+                        <th>Molecular Formula</th>
+                        <th>InChI-Key</th>
+                        <th>References</th>
+                    </tr>
+                </thead>
+    
+                <tbody>
+                  <tr>
+                        <td>(-)-Quebrachitol</td><td>CID:12300199</td><td>ADB001</td><td>COC1[C@H](O)C(O)C([C@@H]([C@@H]1O)O)O</td><td>Artemisia abrotanum</td><td></td><td>194.182</td><td>-2.6327</td><td>0.116</td><td>6</td><td>5</td><td>110.38</td><td>C7H14O6</td><td>DSCFFEYYQKSRSV-DQOOPODHSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
+                    </tr>
                 
-                <tr>
-                    <td>(-)-Quebrachitol</td><td>CID:12300199</td><td>ADB001</td><td>COC1[C@H](O)C(O)C([C@@H]([C@@H]1O)O)O</td><td>Artemisia abrotanum</td><td></td><td>194.182</td><td>-2.6327</td><td>0.116</td><td>6</td><td>5</td><td>110.38</td><td>C7H14O6</td><td>DSCFFEYYQKSRSV-DQOOPODHSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>Tea extract</td><td>CID:11980943</td><td>ADB002</td><td>OC1C(COC(=O)c2cc(O)c(c(c2)O)O)OC(C(C1OC(=O)c1cc(O)c(c(c1)O)O)O)OC(=O)c1cc(O)c(c(c1)O)O.CN1C(=O)C2N(C)C=NC2N(C1=O)C.Oc1cc2OC(c3ccc(c(c3)O)O)C(Cc2c(c1)O)O</td><td>Artemisia abrotanum</td><td></td><td>1122.95</td><td>0.0531</td><td>-1.825</td><td>18</td><td>11</td><td>310.66</td><td>C8H12N4O2.C27H24O18.C15H14O6</td><td>NIEGILROZYGXMJ-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>2,4-Dihydroxycinnamic acid</td><td>CID:446611</td><td>ADB003</td><td>OC(=O)/C=C/c1ccc(cc1O)O</td><td>Artemisia abrotanum</td><td></td><td>180.159</td><td>0.7825</td><td>-1.407</td><td>4</td><td>3</td><td>77.76</td><td>C9H8O4</td><td>HGEFWFBFQKWVMY-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>3-Hydroxycoumarin</td><td>CID:13650</td><td>ADB004</td><td>O=c1oc2ccccc2cc1O</td><td>Artemisia abrotanum</td><td></td><td>162.144</td><td>0.9976</td><td>-2.301</td><td>3</td><td>1</td><td>46.53</td><td>C9H6O3</td><td>MJKVTPMWOKAVMS-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>3-O-caffeoyl-D-quinic acid</td><td>CID:1794426</td><td>ADB005</td><td>O=C(O[C@@H]1C[C@@](O)(C[C@H]([C@H]1O)O)C(=O)[O-])/C=C/c1ccc(c(c1)O)O</td><td>Artemisia abrotanum</td><td></td><td>353.302</td><td>-2.8445</td><td>-1.496</td><td>9</td><td>5</td><td>167.58</td><td>C16H17O9</td><td>CWVRJTMFETXNAD-NCZKRNLISA-M</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>adenine</td><td>CID:190</td><td>ADB006</td><td>Nc1ncnc2c1[nH]cn2</td><td>Artemisia abrotanum</td><td></td><td>135.13</td><td>-0.347</td><td>-2.269</td><td>5</td><td>2</td><td>80.48</td><td>C5H5N5</td><td>GFFGJBXGBJISGV-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>adenosine</td><td>CID:60961</td><td>ADB007</td><td>OC[C@H]1O[C@H]([C@@H]([C@@H]1O)O)n1cnc2c1ncnc2N</td><td>Artemisia abrotanum</td><td></td><td>267.244</td><td>-1.7396</td><td>-2.325</td><td>9</td><td>4</td><td>139.54</td><td>C10H13N5O4</td><td>OIRDTQYFTABQOQ-XJCFNFQFSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>Calycanthoside</td><td>CID:5318566</td><td>ADB008</td><td>OC[C@H]1O[C@@H](Oc2c(OC)cc3c(c2OC)oc(=O)cc3)[C@@H]([C@H]([C@@H]1O)O)O</td><td>Artemisia abrotanum</td><td></td><td>384.336</td><td>-0.9776</td><td>-1.996</td><td>10</td><td>4</td><td>144.14</td><td>C17H20O10</td><td>IKUQEFGEUOOPGY-OYUDGZIASA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>CHOLINE CHLORIDE</td><td>CID:6209</td><td>ADB009</td><td>OCC[N+](C)(C)C.[Cl-]</td><td>Artemisia abrotanum</td><td></td><td>139.625</td><td>-3.5938</td><td>0.665</td><td>2</td><td>1</td><td>20.23</td><td>Cl.C5H14NO</td><td>SGMZJAMFUVOLNK-UHFFFAOYSA-M</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>guanine</td><td>CID:764</td><td>ADB010</td><td>GUANINE</td><td>Artemisia abrotanum</td><td></td><td>157.938</td><td>0</td><td>-0.53</td><td>2</td><td>2</td><td>24.06</td><td>H3N2I</td><td>Unknown element(s): ?</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>Isofraxidin</td><td>CID:5318565</td><td>ADB011</td><td>COc1c(O)c(OC)cc2c1oc(=O)cc2</td><td>Artemisia abrotanum</td><td></td><td>222.195</td><td>1.0117</td><td>-2.11</td><td>5</td><td>1</td><td>64.99</td><td>C11H10O5</td><td>HOEVRHHMDJKUMZ-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>scopoletin</td><td>CID:5280460</td><td>ADB012</td><td>COc1cc2ccc(=O)oc2cc1O</td><td>Artemisia abrotanum</td><td></td><td>192.17</td><td>1.0817</td><td>-2.092</td><td>4</td><td>1</td><td>55.76</td><td>C10H8O4</td><td>RODXRVNMMDRFIK-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>Scopolin</td><td>CID:439514</td><td>ADB013</td><td>OC[C@H]1O[C@@H](Oc2cc3oc(=O)ccc3cc2OC)[C@@H]([C@H]([C@@H]1O)O)O</td><td>Artemisia abrotanum</td><td></td><td>354.31</td><td>-0.9076</td><td>-1.978</td><td>9</td><td>4</td><td>134.91</td><td>C16H18O9</td><td>SGTCGCCQZOUMJJ-DPZJBDQQSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>uric acid</td><td>CID:1175</td><td>ADB014</td><td>�O=c1[nH]c2c([nH]1)[nH]c(=O)[nH]c2=O</td><td>Artemisia abrotanum</td><td></td><td>168.112</td><td>-1.208</td><td>-2.98</td><td>7</td><td>4</td><td>99.33</td><td>C5H4N4O3</td><td>LEHOTFFKMJEONL-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>Vitamin P</td><td>CID:24832108</td><td>ADB015</td><td>Oc1cc(O)c2c(c1)oc(c(c2=O)O[C@@H]1O[C@H](CO[C@H]2O[C@@H](C)[C@@H]([C@H]([C@H]2O)O)O)[C@H]([C@@H]([C@H]1O)O)O)c1ccc(c(c1)O)O</td><td>Artemisia abrotanum</td><td></td><td>610.519</td><td>-1.2573</td><td>-2.398</td><td>16</td><td>10</td><td>265.52</td><td>C27H30O16</td><td>IKGXIBQEEMLURG-ZAOVRDDHSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>Absinthin</td><td>CID:442138</td><td>ADB016</td><td>�C[C@@H]1C(=O)O[C@H]2[C@H]1CC[C@]([C@H]1C2=C(C)</td><td>Artemisia absinthium</td><td></td><td>496.642</td><td>2.9039</td><td>-4.881</td><td>6</td><td>2</td><td>93.06</td><td>C30H40O6</td><td>PZHWYURJZAPXAN-AZZSOBJZSA-N</td><td>DOI:10.15482/USDA.ADC/1239279, ISBN:978-0-387-70637-5</td>
-                </tr>
-            
-                <tr>
-                    <td>ACHILLICIN</td><td>CASID:71616-00-7</td><td>ADB017</td><td>CC(=O)O[C@H]1C[C@](C)(O)C2=CCC(=C2[C@@H]2[C@@H]1[C@H](C)C(=O)O2)C</td><td>Artemisia absinthium</td><td></td><td>306.357</td><td>1.4729</td><td>-2.56</td><td>5</td><td>1</td><td>72.83</td><td>C17H22O5</td><td>ZPTLTKQKVWFFNY-NGHUGOKISA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>alpha,beta-Thujone</td><td>CID:10931629</td><td>ADB018</td><td>O=C1C[C@]2([C@@H](C1C)C2)C(C)C</td><td>Artemisia absinthium</td><td></td><td>152.236</td><td>2.1785</td><td>-2.435</td><td>1</td><td>0</td><td>17.07</td><td>C10H16O</td><td>USMNOWBWPHYOEA-CFGJQEBVSA-N</td><td>DOI:10.15482/USDA.ADC/1239279, ISBN:978-0-387-70637-5,�PMID:15896935,�PMID:21988529,�PMID:28472675</td>
-                </tr>
-            
-                <tr>
-                    <td>Anabsin</td><td>CID:15945690</td><td>ADB019</td><td>CC1C(=O)OC2[C@H]1CC[C@](C1C2=C(C)C2C1C1C3C42[C@H]2OC(=O)[C@H](C2CC[C@@]3(O[C@@]4([C@@H]1O)C)C)C)(C)O</td><td>Artemisia absinthium</td><td></td><td>512.641</td><td>1.8873</td><td>-4.777</td><td>7</td><td>2</td><td>102.29</td><td>C30H40O7</td><td>OVZIMEDUADJHPN-LMMKITJGSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>anabsinthin</td><td>CID:44558930</td><td>ADB020</td><td>C[C@@H]1C(=O)O[C@H]2[C@H]1CC[C@]([C@H]1C2=C(C)[C@H]2[C@@H]1[C@@H]1[C@@H]3[C@@]42[C@H]2OC(=O)[C@H]([C@@H]2CC[C@@]3(O[C@]4(C1)C)C)C)(C)O</td><td>Artemisia absinthium</td><td></td><td>496.642</td><td>2.7394</td><td>-5.176</td><td>6</td><td>1</td><td>82.06</td><td>C30H40O6</td><td>XDKZYFZYOVAAKJ-QMSUMFIDSA-N</td><td>DOI:10.15482/USDA.ADC/1239279, ISBN:978-0-387-70637-5</td>
-                </tr>
-            
-                <tr>
-                    <td>Arabsin</td><td>CID:101596915</td><td>ADB021</td><td>C[C@H]1C(=O)O[C@H]2[C@H]1CC[C@@]1([C@@H]2[C@H](C)C(=O)C[C@H]1O)C</td><td>Artemisia absinthium</td><td></td><td>266.336</td><td>1.2036</td><td>-2.833</td><td>4</td><td>1</td><td>63.6</td><td>C15H22O4</td><td>YRFWEPYMRLGVBZ-XTFLLQPZSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>Artabin</td><td>CID:90471461</td><td>ADB022</td><td>C/C/1=C/C[C@H](O)/C(=C[C@@H]2[C@@H](CC1)[C@@H](C)C(=O)O2)/C</td><td>Artemisia absinthium</td><td></td><td>250.337</td><td>3.1877</td><td>-2.77</td><td>3</td><td>1</td><td>46.53</td><td>C15H22O3</td><td>RLHPCSSGTQNSJN-MQYQWHSLSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>Artabsin</td><td>CID:442146</td><td>ADB023</td><td>O=C1O[C@H]2[C@H]([C@@H]1C)CC[C@](C1=CCC(=C21)C)(C)O</td><td>Artemisia absinthium</td><td></td><td>248.321</td><td>1.8404</td><td>-2.549</td><td>3</td><td>1</td><td>46.53</td><td>C15H20O3</td><td>BXBCLQRTBGRRDB-VWFLFCASSA-N</td><td>DOI:10.15482/USDA.ADC/1239279, ISBN:978-0-387-70637-5</td>
-                </tr>
-            
-                <tr>
-                    <td>artabsinolide A</td><td>CASID:82078-63-5</td><td>ADB024</td><td>C[C@@H]1C(=O)O[C@H]2[C@H]1CC[C@](C1=C2[C@](C)(O)CC1=O)(C)O</td><td>Artemisia absinthium</td><td></td><td>280.319</td><td>0.4131</td><td>-2.015</td><td>5</td><td>2</td><td>83.83</td><td>C15H20O5</td><td>ZSOYDVICJGNUTP-PCYISMBMSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>Artemetin</td><td>CID:5320351</td><td>ADB025</td><td>COc1ccc(cc1OC)c1oc2cc(OC)c(c(c2c(=O)c1OC)O)OC</td><td>Artemisia absinthium</td><td></td><td>388.371</td><td>2.6752</td><td>-3.579</td><td>8</td><td>1</td><td>92.68</td><td>C20H20O8</td><td>RIGYMJVFEJNCKD-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>azulene</td><td>CID:9231</td><td>ADB026</td><td>c1ccc2c(cc1)ccc2</td><td>Artemisia absinthium</td><td></td><td>128.174</td><td>1.9462</td><td>-1.884</td><td>0</td><td>0</td><td>0</td><td>C10H8</td><td>CUFNKYGDVFVPHO-UHFFFAOYSA-N</td><td>ISBN:978-0-387-70637-5</td>
-                </tr>
-            
-                <tr>
-                    <td>Azulene, 7-ethyl-3,6-dihydro-1,4-dimethyl-</td><td>CID:71349359</td><td>ADB027</td><td>CCC1=CC2=C(C(=CC1)C)CC=C2C</td><td>Artemisia absinthium</td><td></td><td>186.297</td><td>3.9966</td><td>-2.754</td><td>0</td><td>0</td><td>0</td><td>C14H18</td><td>NVMJWYJTLVURAS-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>eupatin</td><td>CASID:19587-65-6</td><td>ADB028</td><td>COc1cc2oc(c3ccc(c(c3)O)OC)c(c(=O)c2c(c1OC)O)O</td><td>Artemisia absinthium</td><td></td><td>360.317</td><td>1.9716</td><td>-3.137</td><td>8</td><td>3</td><td>114.68</td><td>C18H16O8</td><td>ZZEQOHMDRQUMMH-UHFFFAOYSA-N</td><td>ISBN:978-0-387-70637-5</td>
-                </tr>
-            
-                <tr>
-                    <td>Lignans machilin F</td><td>CID:13844301</td><td>ADB029</td><td>COc1cc(ccc1O)[C@H]1O[C@H]([C@@H]([C@@H]1C)C)c1ccc2c(c1)OCO2</td><td>Artemisia absinthium</td><td></td><td>342.39</td><td>3.8127</td><td>-3.932</td><td>5</td><td>1</td><td>57.15</td><td>C20H22O5</td><td>JPDORDSJPIKURD-RWLOKEPNSA-N</td><td>ISBN:978-0-387-70637-5</td>
-                </tr>
-            
-                <tr>
-                    <td>.alpha.-Bergamotol</td><td>CID:91749656</td><td>ADB030</td><td>OC/C(=C/CC[C@]1(C)C2CC=C(C1C2)C)/C</td><td>Artemisia annua</td><td></td><td>220.355</td><td>3.9661</td><td>-2.988</td><td>1</td><td>1</td><td>20.23</td><td>C15H24O</td><td>JGINTSAQGRHGMG-YMAMQOFZSA-N</td><td>DOI:10.15482/USDA.ADC/1239279, ISBN:9780415272124</td>
-                </tr>
-            
-                <tr>
-                    <td>2,3-Dehydro-1,8-cineole</td><td>CID:523035</td><td>ADB031</td><td>CC12CCC(C=C1)C(O2)(C)C</td><td>Artemisia annua</td><td></td><td>152.236</td><td>1.8341</td><td>-2.253</td><td>1</td><td>0</td><td>9.23</td><td>C10H16O</td><td>LOOYOTLEOHYYOV-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279, ISBN:9780415272124</td>
-                </tr>
-            
-                <tr>
-                    <td>3,3,6-Trimethylhepta-1,5-dien-4-ol</td><td>CID:100197</td><td>ADB032</td><td>C=CC(C(C=C(C)C)O)(C)C</td><td>Artemisia annua</td><td></td><td>154.252</td><td>3.1802</td><td>-2.107</td><td>1</td><td>1</td><td>20.23</td><td>C10H18O</td><td>WPPVSYVQAKQNJK-SECBINFHSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>3,5-Dihydroxy-7,3',4',5'-tetramethoxyflavone</td><td>CID:44259639</td><td>ADB033</td><td>COc1cc(O)c2c(c1)oc(c(c2=O)O)c1cc(OC)c(c(c1)OC)OC</td><td>Artemisia annua</td><td></td><td>374.344</td><td>2.2473</td><td>-3.451</td><td>8</td><td>2</td><td>103.68</td><td>C19H18O8</td><td>XNIAWIUYUMBOBR-UHFFFAOYSA-N</td><td>DOI:10.1002/ffj.2730070315,�DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>6-methoxykaempferol</td><td>CID:5377945</td><td>ADB034</td><td>COc1c(O)cc2c(c1O)c(=O)c(c(o2)c1ccc(cc1)O)O</td><td>Artemisia annua</td><td></td><td>316.264</td><td>1.7659</td><td>-2.805</td><td>7</td><td>4</td><td>116.45</td><td>C16H12O7</td><td>OGQSUSFDBWGFFJ-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>6-Methylhepta-3,5-dien-2-one</td><td>CID:5370101</td><td>ADB035</td><td>CC(=C/C=C/C(=O)C)C</td><td>Artemisia annua</td><td></td><td>124.182</td><td>2.2982</td><td>-1.654</td><td>1</td><td>0</td><td>17.07</td><td>C8H12O</td><td>KSKXSFZGARKWOW-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>Axillarin</td><td>CHEMSPIDER:4444922</td><td>ADB036</td><td>COc1c(O)cc2c(c1O)c(=O)c(c(o2)c1ccc(c(c1)O)O)OC</td><td>Artemisia annua</td><td></td><td>346.29</td><td>1.8481</td><td>-2.637</td><td>8</td><td>4</td><td>125.68</td><td>C17H14O8</td><td>KIGVXRGRNLQNNI-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>CHEMBL1684147</td><td>CID:52918154</td><td>ADB037</td><td>Cc1oc2cc(O)c(c(c2c(=O)c1)O)O</td><td>Artemisia annua</td><td></td><td>208.169</td><td>1.0411</td><td>-2.026</td><td>5</td><td>3</td><td>86.99</td><td>C10H8O5</td><td>HEVICQKVVHUFCP-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279, ISBN:9780415272124</td>
-                </tr>
-            
-                <tr>
-                    <td>Eucalyptol</td><td>CID:2758</td><td>ADB038</td><td>CC12CCC(CC1)C(O2)(C)C</td><td>Artemisia annua</td><td></td><td>154.252</td><td>2.1095</td><td>-2.481</td><td>1</td><td>0</td><td>9.23</td><td>C10H18O</td><td>WEEGYLXZBRQIMU-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>Isofraxidin</td><td>CID:5318565</td><td>ADB039</td><td>COc1c(O)c(OC)cc2c1oc(=O)cc2</td><td>Artemisia annua</td><td></td><td>222.195</td><td>1.0117</td><td>-2.11</td><td>5</td><td>1</td><td>64.99</td><td>C11H10O5</td><td>HOEVRHHMDJKUMZ-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279, ISBN:9780415272124</td>
-                </tr>
-            
-                <tr>
-                    <td>Pinocarvone</td><td>CID:121719</td><td>ADB040</td><td>C=C1C(=O)CC2CC1C2(C)C</td><td>Artemisia annua</td><td></td><td>150.22</td><td>2.0909</td><td>-2.338</td><td>1</td><td>0</td><td>17.07</td><td>C10H14O</td><td>TZDMGBLPGZXHJI-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>Phytosterols</td><td>CID:12303662</td><td>ADB041</td><td>CC[C@H](C(C)C)CC[C@H]([C@H]1CCC2[C@]1(C)CC[C@H]1[C@H]2CC=C2[C@]1(C)CC[C@@H](C2)O)C</td><td>Artemisia capillaris</td><td></td><td>414.715</td><td>7.8552</td><td>-6.669</td><td>1</td><td>1</td><td>20.23</td><td>C29H50O</td><td>KZJWDPNRJALLNS-ZYMAIBADSA-N</td><td>PMID:15706895</td>
-                </tr>
-            
-                <tr>
-                    <td>UNII-0V56HXQ8N5</td><td>CID:12303902</td><td>ADB042</td><td>CC([C@@H]1CC[C@@]2([C@@H]3[C@H]1[C@H]2C(=CC3)C)C)C</td><td>Artemisia capillaris</td><td></td><td>204.356</td><td>3.9811</td><td>-3.625</td><td>0</td><td>0</td><td>0</td><td>C15H24</td><td>VLXDPFLIRFYIME-XLWJZTARSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>(+)-endo-beta-bergamotene</td><td>CID:12300073</td><td>ADB043</td><td>CC(=CCC[C@@]1(C)[C@H]2CCC(=C)[C@@H]1C2)C</td><td>Artemisia capillaris</td><td></td><td>204.356</td><td>4.9711</td><td>-3.662</td><td>0</td><td>0</td><td>0</td><td>C15H24</td><td>DGZBGCMPRYFWFF-KKUMJFAQSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>(1S,2R,4S)-(-)-Bornyl acetate</td><td>CID:442460</td><td>ADB044</td><td>CC(=O)O[C@@H]1CC2C(C1(C)CC2)(C)C</td><td>Artemisia capillaris</td><td></td><td>196.289</td><td>2.5202</td><td>-2.811</td><td>2</td><td>0</td><td>26.3</td><td>C12H20O2</td><td>KGEKLUUHTZCSIP-SQLBVSGCSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>3-Carene</td><td>CID:26049</td><td>ADB045</td><td>CC1=CCC2C(C1)C2(C)C</td><td>Artemisia capillaris</td><td></td><td>136.237</td><td>2.721</td><td>-2.519</td><td>0</td><td>0</td><td>0</td><td>C10H16</td><td>BQOFWKZOCNGFEC-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279,�PMID:21366060</td>
-                </tr>
-            
-                <tr>
-                    <td>3-O-caffeoyl-D-quinic acid</td><td>CID:1794426</td><td>ADB046</td><td>O=C(O[C@@H]1C[C@@](O)(C[C@H]([C@H]1O)O)C(=O)[O-])/C=C/c1ccc(c(c1)O)O</td><td>Artemisia capillaris</td><td></td><td>353.302</td><td>-2.8445</td><td>-1.496</td><td>9</td><td>5</td><td>167.58</td><td>C16H17O9</td><td>CWVRJTMFETXNAD-NCZKRNLISA-M</td><td>PMID:6242383</td>
-                </tr>
-            
-                <tr>
-                    <td>5-Phenyl-1,3-pentadiyne</td><td>CID:587245</td><td>ADB047</td><td>C#CC#CCc1ccccc1</td><td>Artemisia capillaris</td><td></td><td>140.185</td><td>2.581</td><td>-4.629</td><td>0</td><td>0</td><td>0</td><td>C11H8</td><td>ZZGANZXITREHOP-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>6-Methoxyluteolin</td><td>CID:5317284</td><td>ADB048</td><td>COc1c(O)cc2c(c1O)c(=O)cc(o2)c1ccc(c(c1)O)O</td><td>Artemisia capillaris</td><td></td><td>316.264</td><td>1.92</td><td>-2.578</td><td>7</td><td>4</td><td>116.45</td><td>C16H12O7</td><td>FHHSEFRSDKWJKJ-UHFFFAOYSA-N</td><td>PMID:15719683</td>
-                </tr>
-            
-                <tr>
-                    <td>Agropyrene</td><td>CID:3083613</td><td>ADB049</td><td>CC#CC#CCc1ccccc1</td><td>Artemisia capillaris</td><td></td><td>154.211</td><td>3.5011</td><td>-6.491</td><td>0</td><td>0</td><td>0</td><td>C12H10</td><td>WXQYRBLGGSLJHA-UHFFFAOYSA-N</td><td>PMID:15729631,�PMID:21366060</td>
-                </tr>
-            
-                <tr>
-                    <td>alpha-Humulene</td><td>CID:5281520</td><td>ADB050</td><td>C/C/1=CCC(C)(C)/C=C/C/C(=C/CC1)/C</td><td>Artemisia capillaris</td><td></td><td>204.356</td><td>6.2387</td><td>-3.401</td><td>0</td><td>0</td><td>0</td><td>C15H24</td><td>FAMPSKZZVDUYOS-RTGYOGOESA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>BETA-PINENE</td><td>CID:14896</td><td>ADB051</td><td>C=C1CCC2CC1C2(C)C</td><td>Artemisia capillaris</td><td></td><td>136.237</td><td>2.7993</td><td>-2.686</td><td>0</td><td>0</td><td>0</td><td>C10H16</td><td>WTARULDDTDQWMU-UHFFFAOYSA-N</td><td>PMID:15729631,�PMID:21366060</td>
-                </tr>
-            
-                <tr>
-                    <td>Capillartemisin B</td><td>CID:6439716</td><td>ADB052</td><td>OC/C(=CCc1cc(/C=C/C(=O)O)cc(c1O)CC=C(C)C)/C</td><td>Artemisia capillaris</td><td></td><td>316.396</td><td>4.2465</td><td>-3.074</td><td>4</td><td>3</td><td>77.76</td><td>C19H24O4</td><td>HEFPIIHDRLNTDN-UHFFFAOYSA-N</td><td>PMID:15706895</td>
-                </tr>
-            
-                <tr>
-                    <td>Cirsilineol</td><td>CID:162464</td><td>ADB053</td><td>COc1cc2oc(cc(=O)c2c(c1OC)O)c1ccc(c(c1)OC)O</td><td>Artemisia capillaris</td><td></td><td>344.318</td><td>2.4714</td><td>-3.206</td><td>7</td><td>2</td><td>94.45</td><td>C18H16O7</td><td>VKOSQMWSWLZQPA-UHFFFAOYSA-N</td><td>PMID:12774401</td>
-                </tr>
-            
-                <tr>
-                    <td>Cirsimaritin</td><td>CID:188323</td><td>ADB054</td><td>COc1cc2oc(cc(=O)c2c(c1OC)O)c1ccc(cc1)O</td><td>Artemisia capillaris</td><td></td><td>314.292</td><td>2.5414</td><td>-3.188</td><td>6</td><td>2</td><td>85.22</td><td>C17H14O6</td><td>ZIIAJIWLQUVGHB-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>Demethoxycapillarisin</td><td>CID:5316511</td><td>ADB055</td><td>Oc1ccc(cc1)Oc1cc(=O)c2c(o1)cc(cc2O)O</td><td>Artemisia capillaris</td><td></td><td>286.238</td><td>2.5075</td><td>-4.218</td><td>6</td><td>3</td><td>96.22</td><td>C15H10O6</td><td>UBSCDKPKWHYZNX-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>Dipentene</td><td>CID:22311</td><td>ADB056</td><td>�CC1=CCC(CC1)C(=C)C</td><td>Artemisia capillaris</td><td></td><td>136.237</td><td>3.3614</td><td>-2.539</td><td>0</td><td>0</td><td>0</td><td>C10H16</td><td>XMGQYMWWDOXHJM-JTQLQIEISA-N</td><td>PMID:21366060</td>
-                </tr>
-            
-                <tr>
-                    <td>Eucalyptol</td><td>CID:2758</td><td>ADB057</td><td>CC12CCC(CC1)C(O2)(C)C</td><td>Artemisia capillaris</td><td></td><td>154.252</td><td>2.1095</td><td>-2.481</td><td>1</td><td>0</td><td>9.23</td><td>C10H18O</td><td>WEEGYLXZBRQIMU-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>eugenol</td><td>CID:3314</td><td>ADB058</td><td>C=CCc1ccc(c(c1)OC)O</td><td>Artemisia capillaris</td><td></td><td>164.203</td><td>2.2723</td><td>-2.05</td><td>2</td><td>1</td><td>29.46</td><td>C10H12O2</td><td>RRAFCDWBNXTKKO-UHFFFAOYSA-N</td><td>PMID:11440075</td>
-                </tr>
-            
-                <tr>
-                    <td>isoquercitin</td><td>CID:10813969</td><td>ADB059</td><td>OC[C@@H]1O[C@H](Oc2c(oc3c(c2=O)c(O)cc(c3)O)c2ccc(c(c2)O)O)[C@H]([C@@H]([C@H]1O)O)O</td><td>Artemisia capillaris</td><td></td><td>464.378</td><td>-0.3469</td><td>-2.191</td><td>12</td><td>8</td><td>206.6</td><td>C21H20O12</td><td>OVSQVDMCBVZWGM-UZVAKFGASA-N</td><td>PMID:15719683</td>
-                </tr>
-            
-                <tr>
-                    <td>Kumatakenin</td><td>CID:5318869</td><td>ADB060</td><td>COc1c(oc2c(c1=O)c(O)cc(c2)OC)c1ccc(cc1)O</td><td>Artemisia capillaris</td><td></td><td>314.292</td><td>2.5395</td><td>-3.229</td><td>6</td><td>2</td><td>85.22</td><td>C17H14O6</td><td>BJBUTJQYZDYRMJ-UHFFFAOYSA-N</td><td>PMID:15706895</td>
-                </tr>
-            
-                <tr>
-                    <td>MYRCENE</td><td>CID:31253</td><td>ADB061</td><td>C=CC(=C)CCC=C(C)C</td><td>Artemisia capillaris</td><td></td><td>136.237</td><td>4.2932</td><td>-2.502</td><td>0</td><td>0</td><td>0</td><td>C10H16</td><td>UAHWPYUMFXYFJY-UHFFFAOYSA-N</td><td>PMID:21366060</td>
-                </tr>
-            
-                <tr>
-                    <td>Oplodiol</td><td>CID:12313756</td><td>ADB062</td><td>CC(C1=CC[C@@]2([C@@H](C1)[C@@](C)(O)CC[C@H]2O)C)C</td><td>Artemisia capillaris</td><td></td><td>238.369</td><td>2.7442</td><td>-2.91</td><td>2</td><td>2</td><td>40.46</td><td>C15H26O2</td><td>SOZSXJHFVBBAOY-BARDWOONSA-N</td><td>PMID:11440075</td>
-                </tr>
-            
-                <tr>
-                    <td>Pectolinarigenin</td><td>CID:5320438</td><td>ADB063</td><td>COc1ccc(cc1)c1cc(=O)c2c(o1)cc(c(c2O)OC)O</td><td>Artemisia capillaris</td><td></td><td>314.292</td><td>2.5414</td><td>-3.188</td><td>6</td><td>2</td><td>85.22</td><td>C17H14O6</td><td>GPQLHGCIAUEJQK-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>Pedalitin</td><td>CID:31161</td><td>ADB064</td><td>COc1cc2oc(cc(=O)c2c(c1O)O)c1ccc(c(c1)O)O</td><td>Artemisia capillaris</td><td></td><td>316.264</td><td>1.92</td><td>-2.578</td><td>7</td><td>4</td><td>116.45</td><td>C16H12O7</td><td>QWUHUBDKQQPMQG-UHFFFAOYSA-N</td><td>PMID:15719683</td>
-                </tr>
-            
-                <tr>
-                    <td>phenylephrine</td><td>CID:6041</td><td>ADB065</td><td>CNC[C@@H](c1cccc(c1)O)O</td><td>Artemisia capillaris</td><td></td><td>167.207</td><td>0.0303</td><td>-0.76</td><td>3</td><td>3</td><td>52.49</td><td>C9H13NO2</td><td>SONNWYBIRXJNDC-VIFPVBQESA-N</td><td>PMID:1830846</td>
-                </tr>
-            
-                <tr>
-                    <td>Sabandin;1,4-Benzoquinone</td><td>CID:46226658</td><td>ADB066</td><td>COc1c2OCOc2c(c2c1ccc(=O)o2)OC</td><td>Artemisia capillaris</td><td></td><td>250.205</td><td>1.4688</td><td>-3.117</td><td>6</td><td>0</td><td>63.22</td><td>C12H10O6</td><td>LDCAQGBKMDSYGC-UHFFFAOYSA-N</td><td>PMID:12674134</td>
-                </tr>
-            
-                <tr>
-                    <td>Scoparone</td><td>CID:8417</td><td>ADB067</td><td>COc1cc2oc(=O)ccc2cc1OC</td><td>Artemisia capillaris</td><td></td><td>206.196</td><td>1.3574</td><td>-2.406</td><td>4</td><td>0</td><td>44.76</td><td>C11H10O4</td><td>GUAFOGOEJLSQBT-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279,�PMID:15706895,�PMID:1830846,�PMID:2630096,�PMID:4663246</td>
-                </tr>
-            
-                <tr>
-                    <td>vanillin</td><td>CID:1183</td><td>ADB068</td><td>COc1cc(C=O)ccc1O</td><td>Artemisia capillaris</td><td></td><td>152.149</td><td>1.1772</td><td>-1.662</td><td>3</td><td>1</td><td>46.53</td><td>C8H8O3</td><td>MWOOGOJBHIARFG-UHFFFAOYSA-N</td><td>PMID:11440075</td>
-                </tr>
-            
-                <tr>
-                    <td>Tea extract</td><td>CID:11980943</td><td>ADB069</td><td>OC1C(COC(=O)c2cc(O)c(c(c2)O)O)OC(C(C1OC(=O)c1cc(O)c(c(c1)O)O)O)OC(=O)c1cc(O)c(c(c1)O)O.CN1C(=O)C2N(C)C=NC2N(C1=O)C.Oc1cc2OC(c3ccc(c(c3)O)O)C(Cc2c(c1)O)O</td><td>Artemisia cina</td><td></td><td>1122.95</td><td>0.0531</td><td>-1.825</td><td>18</td><td>11</td><td>310.66</td><td>C8H12N4O2.C27H24O18.C15H14O6</td><td>NIEGILROZYGXMJ-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>.alpha.-Santonin</td><td>CID:736052</td><td>ADB070</td><td>C[C@H]1C(=O)O[C@@H]2[C@@H]1CC[C@]1(C2=C(C)C(=O)C=C1)C</td><td>Artemisia cina</td><td></td><td>246.305</td><td>1.8467</td><td>-2.704</td><td>3</td><td>0</td><td>43.37</td><td>C15H18O3</td><td>XJHDMGJURBVLLE-KAKFMGRLSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>3-Carene</td><td>CID:26049</td><td>ADB071</td><td>CC1=CCC2C(C1)C2(C)C</td><td>Artemisia cina</td><td></td><td>136.237</td><td>2.721</td><td>-2.519</td><td>0</td><td>0</td><td>0</td><td>C10H16</td><td>BQOFWKZOCNGFEC-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>ALPHA-TERPINENE</td><td>CID:7462</td><td>ADB072</td><td>CC1=CC=C(CC1)C(C)C</td><td>Artemisia cina</td><td></td><td>136.237</td><td>3.0543</td><td>-2.372</td><td>0</td><td>0</td><td>0</td><td>C10H16</td><td>YHQGMYUVUMAZJR-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>alpha-TERPINEOL</td><td>CID:17100</td><td>ADB073</td><td>CC1=CCC(CC1)C(O)(C)C</td><td>Artemisia cina</td><td></td><td>154.252</td><td>2.2993</td><td>-2.186</td><td>1</td><td>1</td><td>20.23</td><td>C10H18O</td><td>WUOACPNHFRMFPN-SECBINFHSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>Artemisin</td><td>CID:621620</td><td>ADB074</td><td>OC1CC2(C)C=CC(=O)C(=C2C2C1C(C)C(=O)O2)C</td><td>Artemisia cina</td><td></td><td>262.304</td><td>0.9946</td><td>-2.305</td><td>4</td><td>1</td><td>63.6</td><td>C15H18O4</td><td>LUHMMHZLDLBAKX-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>Artemisin</td><td>CID:65030</td><td>ADB075</td><td>O[C@H]1C[C@@]2(C)C=CC(=O)C(=C2[C@@H]2[C@@H]1[C@H](C)C(=O)O2)C</td><td>Artemisia cina</td><td></td><td>262.304</td><td>0.9946</td><td>-2.305</td><td>4</td><td>1</td><td>63.6</td><td>C15H18O4</td><td>LUHMMHZLDLBAKX-OXDNQEBSSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>betaine</td><td>CID:247</td><td>ADB076</td><td>[O-]C(=O)C[N+](C)(C)C</td><td>Artemisia cina</td><td></td><td>117.147</td><td>-6.0194</td><td>0.683</td><td>3</td><td>0</td><td>40.13</td><td>C5H11NO2</td><td>KWIUHFFTVRNATP-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>CARVACROL</td><td>CID:10364</td><td>ADB077</td><td>CC(c1ccc(c(c1)O)C)C</td><td>Artemisia cina</td><td></td><td>150.22</td><td>2.8448</td><td>-2.535</td><td>1</td><td>1</td><td>20.23</td><td>C10H14O</td><td>RECUKUPTGUEGMW-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>CHOLINE CHLORIDE</td><td>CID:6209</td><td>ADB078</td><td>OCC[N+](C)(C)C.[Cl-]</td><td>Artemisia cina</td><td></td><td>139.625</td><td>-3.5938</td><td>0.665</td><td>2</td><td>1</td><td>20.23</td><td>Cl.C5H14NO</td><td>SGMZJAMFUVOLNK-UHFFFAOYSA-M</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>Eucalyptol</td><td>CID:2758</td><td>ADB079</td><td>CC12CCC(CC1)C(O2)(C)C</td><td>Artemisia cina</td><td></td><td>154.252</td><td>2.1095</td><td>-2.481</td><td>1</td><td>0</td><td>9.23</td><td>C10H18O</td><td>WEEGYLXZBRQIMU-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>santonin</td><td>CID:221071</td><td>ADB080</td><td>C[C@@H]1C(=O)O[C@H]2[C@H]1CC[C@@]1(C2=C(C)C(=O)C=C1)C</td><td>Artemisia cina</td><td></td><td>246.305</td><td>1.8467</td><td>-2.704</td><td>3</td><td>0</td><td>43.37</td><td>C15H18O3</td><td>XJHDMGJURBVLLE-OMCHNSJMSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>CID 12300199</td><td>CID:12300199</td><td>ADB081</td><td>COC1[C@H](O)C(O)C([C@@H]([C@@H]1O)O)O</td><td>Artemisia dracunculus</td><td></td><td>194.182</td><td>-2.6327</td><td>0.116</td><td>6</td><td>5</td><td>110.38</td><td>C7H14O6</td><td>DSCFFEYYQKSRSV-DQOOPODHSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>1-Oxo-1h-2-Benzopyran-3-Carboxaldehydes</td><td>CID:12582097</td><td>ADB082</td><td>O=Cc1cc2ccccc2c(=O)o1</td><td>Artemisia dracunculus</td><td></td><td>174.155</td><td>0.8135</td><td>-2.657</td><td>3</td><td>0</td><td>43.37</td><td>C10H6O3</td><td>ALHVSADYXQWYJH-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>10-hydroxynerol</td><td>CID:13619433</td><td>ADB083</td><td>OC/C=C(/CC/C=C(CO)/C)C</td><td>Artemisia dracunculus</td><td></td><td>170.251</td><td>2.5586</td><td>-1.382</td><td>2</td><td>2</td><td>40.46</td><td>C10H18O2</td><td>PREUOUJFXMCMSJ-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>2-Carboxy-D-arabinitol</td><td>CID:439944</td><td>ADB084</td><td>OC[C@H]([C@H]([C@@](C(=O)O)(CO)O)O)O</td><td>Artemisia dracunculus</td><td></td><td>196.154</td><td>-3.4741</td><td>0.833</td><td>7</td><td>6</td><td>138.45</td><td>C6H12O7</td><td>XONDRGRALZTVKD-ZMIZWQJLSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>2-HEPTANONE</td><td>CID:8051</td><td>ADB085</td><td>CCCCCC(=O)C</td><td>Artemisia dracunculus</td><td></td><td>114.187</td><td>2.1962</td><td>-1.986</td><td>1</td><td>0</td><td>17.07</td><td>C7H14O</td><td>CATSNJVOTSVZJV-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>2,4'-dihydroxy-4-methoxydihydrochalcone</td><td>CID:14157883</td><td>ADB086</td><td>COc1ccc(c(c1)O)CCC(=O)c1ccc(cc1)O</td><td>Artemisia dracunculus</td><td></td><td>272.299</td><td>2.6657</td><td>-3.131</td><td>4</td><td>2</td><td>66.76</td><td>C16H16O4</td><td>RORZHTZYZDZJKG-UHFFFAOYSA-N</td><td>PMID:17848630</td>
-                </tr>
-            
-                <tr>
-                    <td>2,6-Di-tert-butyl-4-methylphenol</td><td>CID:31404</td><td>ADB087</td><td>Cc1cc(c(c(c1)C(C)(C)C)O)C(C)(C)C</td><td>Artemisia dracunculus</td><td></td><td>220.355</td><td>4.8216</td><td>-3.984</td><td>1</td><td>1</td><td>20.23</td><td>C15H24O</td><td>NLZUEZXRPGMBCV-UHFFFAOYSA-N</td><td>PMID:16302761</td>
-                </tr>
-            
-                <tr>
-                    <td>3-Butylisocoumarin</td><td>CID:10899690</td><td>ADB088</td><td>�CCCCc1cc2ccccc2c(=O)o1</td><td>Artemisia dracunculus</td><td></td><td>202.252</td><td>3.3157</td><td>-3.759</td><td>2</td><td>0</td><td>26.3</td><td>C13H14O2</td><td>YBZYVRHAWKKYNO-UHFFFAOYSA-N</td><td>PMID:14738379</td>
-                </tr>
-            
-                <tr>
-                    <td>3-Hydroxycoumarin</td><td>CID:13650</td><td>ADB089</td><td>O=c1oc2ccccc2cc1O</td><td>Artemisia dracunculus</td><td></td><td>162.144</td><td>0.9976</td><td>-2.301</td><td>3</td><td>1</td><td>46.53</td><td>C9H6O3</td><td>MJKVTPMWOKAVMS-UHFFFAOYSA-N</td><td>PMID:19127719</td>
-                </tr>
-            
-                <tr>
-                    <td>3'-Hydroxycorfin</td><td>CID:11229631</td><td>ADB090</td><td>CC(C#Cc1cc2ccccc2c(=O)o1)O</td><td>Artemisia dracunculus</td><td></td><td>214.219</td><td>1.9261</td><td>-5.006</td><td>3</td><td>1</td><td>46.53</td><td>C13H10O3</td><td>XNVUGJDBKZLVPX-VIFPVBQESA-N</td><td>PMID:14738379</td>
-                </tr>
-            
-                <tr>
-                    <td>4-Hydroxy-6,7-dimethylcoumarin</td><td>CID:54682088</td><td>ADB091</td><td>O=c1cc(O)c2c(o1)cc(c(c2)C)C</td><td>Artemisia dracunculus</td><td></td><td>190.197</td><td>1.803</td><td>-2.591</td><td>3</td><td>1</td><td>46.53</td><td>C11H10O3</td><td>AYHZQBMBPNZPEY-UHFFFAOYSA-N</td><td>PMID:19127719</td>
-                </tr>
-            
-                <tr>
-                    <td>4-METHOXYBENZYL ALCOHOL</td><td>CID:7738</td><td>ADB092</td><td>OCc1ccc(cc1)OC</td><td>Artemisia dracunculus</td><td></td><td>138.165</td><td>0.9923</td><td>-1.518</td><td>2</td><td>1</td><td>29.46</td><td>C8H10O2</td><td>MSHFRERJPWKJFX-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>4-Methoxycinnamaldehyde</td><td>CID:641294</td><td>ADB093</td><td>COc1ccc(cc1)/C=C/C=O</td><td>Artemisia dracunculus</td><td></td><td>162.187</td><td>1.5412</td><td>-2.25</td><td>2</td><td>0</td><td>26.3</td><td>C10H10O2</td><td>AXCXHFKZHDEKTP-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>5-Phenyl-1,3-pentadiyne</td><td>CID:587245</td><td>ADB094</td><td>�C#CC#CCc1ccccc1</td><td>Artemisia dracunculus</td><td></td><td>140.185</td><td>2.581</td><td>-4.629</td><td>0</td><td>0</td><td>0</td><td>C11H8</td><td>ZZGANZXITREHOP-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>5,7-DIHYDROXY-4-METHYLCOUMARIN</td><td>CID:5354284</td><td>ADB095</td><td>Oc1cc(O)c2c(c1)oc(=O)cc2C</td><td>Artemisia dracunculus</td><td></td><td>192.17</td><td>0.8842</td><td>-1.507</td><td>4</td><td>2</td><td>66.76</td><td>C10H8O4</td><td>QNVWGEJMXOQQPM-UHFFFAOYSA-N</td><td>PMID:19127719</td>
-                </tr>
-            
-                <tr>
-                    <td>6-Methoxymellein</td><td>CID:83412</td><td>ADB096</td><td>CC1CC2=C(C(=CC(=C2)OC)O)C(=O)O1</td><td>Artemisia dracunculus</td><td></td><td>208.212</td><td>1.3483</td><td>-2.206</td><td>4</td><td>1</td><td>55.76</td><td>C11H12O4</td><td>AIFNAMVERSBWPS-LURJTMIESA-N</td><td>PMID:14738379</td>
-                </tr>
-            
-                <tr>
-                    <td>6,7-Dimethoxy-4-methylcoumarin</td><td>CID:77966</td><td>ADB097</td><td>CC1=CC(=O)OC2=CC(=C(C=C12)OC)OC</td><td>Artemisia dracunculus</td><td></td><td>220.223</td><td>1.4356</td><td>-2.135</td><td>4</td><td>0</td><td>44.76</td><td>C12H12O4</td><td>GBYDSYPGGDKWGZ-UHFFFAOYSA-N</td><td>PMID:19127719</td>
-                </tr>
-            
-                <tr>
-                    <td>7-Methoxycoumarin</td><td>CID:10748</td><td>ADB098</td><td>�COc1ccc2c(c1)oc(=O)cc2</td><td>Artemisia dracunculus</td><td></td><td>176.171</td><td>1.4274</td><td>-2.388</td><td>3</td><td>0</td><td>35.53</td><td>C10H8O3</td><td>LIIALPBMIOVAHH-UHFFFAOYSA-N</td><td>PMID:19127719,�PMID:25076224,�PMID:26982075</td>
-                </tr>
-            
-                <tr>
-                    <td>8-Acetyl-7-hydroxycoumarin</td><td>CID:5411574</td><td>ADB099</td><td>O=c1ccc2c(o1)c(C(=O)C)c(cc2)O</td><td>Artemisia dracunculus</td><td></td><td>204.181</td><td>1.0229</td><td>-2.758</td><td>4</td><td>1</td><td>63.6</td><td>C11H8O4</td><td>XWYMACPLPPQCHC-UHFFFAOYSA-N</td><td>PMID:19127719</td>
-                </tr>
-            
-                <tr>
-                    <td>8-hydroxyartemidin</td><td>CID:44575586</td><td>ADB100</td><td>CC/C=C/c1cc2cccc(c2c(=O)o1)O</td><td>Artemisia dracunculus</td><td></td><td>216.235</td><td>2.7178</td><td>-3.235</td><td>3</td><td>1</td><td>46.53</td><td>C13H12O3</td><td>KIVJBPPONQCANS-UHFFFAOYSA-N</td><td>PMID:14738379</td>
-                </tr>
-            
-                <tr>
-                    <td>8-hydroxycapillarin</td><td>CID:44575587</td><td>ADB101</td><td>CC#CCc1cc2cccc(c2c(=O)o1)O</td><td>Artemisia dracunculus</td><td></td><td>214.219</td><td>2.6022</td><td>-5.109</td><td>3</td><td>1</td><td>46.53</td><td>C13H10O3</td><td>GWACCTLVSACUOC-UHFFFAOYSA-N</td><td>PMID:14738379</td>
-                </tr>
-            
-                <tr>
-                    <td>Agropyrene</td><td>CID:3083613</td><td>ADB102</td><td>CC#CC#CCc1ccccc1</td><td>Artemisia dracunculus</td><td></td><td>154.211</td><td>3.5011</td><td>-6.491</td><td>0</td><td>0</td><td>0</td><td>C12H10</td><td>WXQYRBLGGSLJHA-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>Artemidin</td><td>CID:5945155</td><td>ADB103</td><td>�CC/C=C/c1cc2ccccc2c(=O)o1</td><td>Artemisia dracunculus</td><td></td><td>200.236</td><td>3.0635</td><td>-3.531</td><td>2</td><td>0</td><td>26.3</td><td>C13H12O2</td><td>DHKBMMCQVXFEJY-UHFFFAOYSA-N</td><td>DOI:10.1002/ffj.2730070315,�DOI:10.15482/USDA.ADC/1239279,�PMID:14738379</td>
-                </tr>
-            
-                <tr>
-                    <td>artemidinol</td><td>CID:23264915</td><td>ADB104</td><td>CC/C=C/c1oc(=O)c2c(c1)c(O)ccc2</td><td>Artemisia dracunculus</td><td></td><td>216.235</td><td>2.7178</td><td>-3.235</td><td>3</td><td>1</td><td>46.53</td><td>C13H12O3</td><td>QBZHMYUXUVZDQT-UHFFFAOYSA-N</td><td>PMID:14738379</td>
-                </tr>
-            
-                <tr>
-                    <td>BENOMYL</td><td>CID:28780</td><td>ADB105</td><td>CCCCNC(=O)n1c(NC(=O)OC)nc2c1cccc2</td><td>Artemisia dracunculus</td><td></td><td>290.322</td><td>2.8242</td><td>-3.893</td><td>7</td><td>2</td><td>85.25</td><td>C14H18N4O3</td><td>RIOXQFHNBCKOKP-UHFFFAOYSA-N</td><td>PMID:14738379</td>
-                </tr>
-            
-                <tr>
-                    <td>Capillarin</td><td>CID:3083811</td><td>ADB106</td><td>CC#CCc1cc2ccccc2c(=O)o1</td><td>Artemisia dracunculus</td><td></td><td>198.22</td><td>2.9479</td><td>-5.405</td><td>2</td><td>0</td><td>26.3</td><td>C13H10O2</td><td>KUJLPCYCQICVRM-UHFFFAOYSA-N</td><td>PMID:14738379</td>
-                </tr>
-            
-                <tr>
-                    <td>capillarin isovalerate</td><td>CID:11289514</td><td>ADB107</td><td>CC(CC(=O)OCC#CCc1cc2ccccc2c(=O)o1)C</td><td>Artemisia dracunculus</td><td></td><td>298.337</td><td>3.6329</td><td>-6.008</td><td>4</td><td>0</td><td>52.6</td><td>C18H18O4</td><td>VOVINARUPGPNJR-UHFFFAOYSA-N</td><td>PMID:14738379</td>
-                </tr>
-            
-                <tr>
-                    <td>Capillin</td><td>CID:10321</td><td>ADB108</td><td>CC#CC#CC(=O)c1ccccc1</td><td>Artemisia dracunculus</td><td></td><td>168.195</td><td>2.6128</td><td>-6.672</td><td>1</td><td>0</td><td>17.07</td><td>C12H8O</td><td>RAZOKRUZEQERLH-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>corfin</td><td>CID:11344623</td><td>ADB109</td><td>CCC#Cc1cc2ccccc2c(=O)o1</td><td>Artemisia dracunculus</td><td></td><td>198.22</td><td>2.9479</td><td>-5.405</td><td>2</td><td>0</td><td>26.3</td><td>C13H10O2</td><td>HXCUAJOYXLPFND-UHFFFAOYSA-N</td><td>PMID:14738379</td>
-                </tr>
-            
-                <tr>
-                    <td>daphnetin</td><td>CID:5280569</td><td>ADB110</td><td>O=c1ccc2c(o1)c(O)c(cc2)O</td><td>Artemisia dracunculus</td><td></td><td>178.143</td><td>0.806</td><td>-1.778</td><td>4</td><td>2</td><td>66.76</td><td>C9H6O4</td><td>ATEFPOUAMCWAQS-UHFFFAOYSA-N</td><td>PMID:19127719</td>
-                </tr>
-            
-                <tr>
-                    <td>Demethoxycapillarisin</td><td>CID:5316511</td><td>ADB111</td><td>Oc1ccc(cc1)Oc1cc(=O)c2c(o1)cc(cc2O)O</td><td>Artemisia dracunculus</td><td></td><td>286.238</td><td>2.5075</td><td>-4.218</td><td>6</td><td>3</td><td>96.22</td><td>C15H10O6</td><td>UBSCDKPKWHYZNX-UHFFFAOYSA-N</td><td>PMID:17848630,�PMID:21798321</td>
-                </tr>
-            
-                <tr>
-                    <td>Dipentene</td><td>CID:22311</td><td>ADB112</td><td>�CC1=CCC(CC1)C(=C)C</td><td>Artemisia dracunculus</td><td></td><td>136.237</td><td>3.3614</td><td>-2.539</td><td>0</td><td>0</td><td>0</td><td>C10H16</td><td>XMGQYMWWDOXHJM-JTQLQIEISA-N</td><td>PMID:16302761</td>
-                </tr>
-            
-                <tr>
-                    <td>Esculetin</td><td>CID:5281416</td><td>ADB113</td><td>O=c1ccc2c(o1)cc(c(c2)O)O</td><td>Artemisia dracunculus</td><td></td><td>178.143</td><td>0.806</td><td>-1.778</td><td>4</td><td>2</td><td>66.76</td><td>C9H6O4</td><td>ILEDWLMCKZNDJK-UHFFFAOYSA-N</td><td>PMID:19127719</td>
-                </tr>
-            
-                <tr>
-                    <td>Estragole</td><td>CID:8815</td><td>ADB114</td><td>COc1ccc(cc1)CC=C</td><td>Artemisia dracunculus</td><td></td><td>148.204</td><td>2.618</td><td>-2.346</td><td>1</td><td>0</td><td>9.23</td><td>C10H12O</td><td>ZFMSMUAANRJZFM-UHFFFAOYSA-N</td><td>PMID:10843599,�PMID:21953838,�PMID:27761422</td>
-                </tr>
-            
-                <tr>
-                    <td>Eucalyptol</td><td>CID:2758</td><td>ADB115</td><td>CC12CCC(CC1)C(O2)(C)C</td><td>Artemisia dracunculus</td><td></td><td>154.252</td><td>2.1095</td><td>-2.481</td><td>1</td><td>0</td><td>9.23</td><td>C10H18O</td><td>WEEGYLXZBRQIMU-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>F 1375</td><td>CID:197836</td><td>ADB116</td><td>OC(=O)c1ccccc1Cc1cc2ccccc2c(=O)o1</td><td>Artemisia dracunculus</td><td></td><td>280.278</td><td>2.8795</td><td>-4.097</td><td>4</td><td>1</td><td>63.6</td><td>C17H12O4</td><td>GCFOLLWPQAGLCM-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>Isobutyramide</td><td>CID:68424</td><td>ADB117</td><td>CC(C)C(=O)N</td><td>Artemisia dracunculus</td><td></td><td>87.1215</td><td>-0.0242</td><td>-0.965</td><td>2</td><td>1</td><td>43.09</td><td>C4H9NO</td><td>WFKAJVHLWXSISD-UHFFFAOYSA-N</td><td>PMID:22738981</td>
-                </tr>
-            
-                <tr>
-                    <td>Isoferulic acid</td><td>CID:736186</td><td>ADB118</td><td>COc1ccc(cc1O)/C=C/C(=O)O</td><td>Artemisia dracunculus</td><td></td><td>194.185</td><td>1.0582</td><td>-1.721</td><td>4</td><td>2</td><td>66.76</td><td>C10H10O4</td><td>QURCVMIEKCOAJU-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>Isoscopoletin</td><td>CID:69894</td><td>ADB119</td><td>COC1=C(C=C2C=CC(=O)OC2=C1)O</td><td>Artemisia dracunculus</td><td></td><td>192.17</td><td>1.0817</td><td>-2.092</td><td>4</td><td>1</td><td>55.76</td><td>C10H8O4</td><td>SYTYLPHCLSSCOJ-UHFFFAOYSA-N</td><td>PMID:19127719</td>
-                </tr>
-            
-                <tr>
-                    <td>LY294002</td><td>CID:3973</td><td>ADB120</td><td>O=c1cc(oc2c1cccc2c1ccccc1)N1CCOCC1</td><td>Artemisia dracunculus</td><td></td><td>307.348</td><td>3.4476</td><td>-5.432</td><td>4</td><td>0</td><td>38.77</td><td>C19H17NO3</td><td>CZQHHVNHHHRRDU-UHFFFAOYSA-N</td><td>PMID:17848630</td>
-                </tr>
-            
-                <tr>
-                    <td>methoxsalen</td><td>CID:4114</td><td>ADB121</td><td>COc1c2oc(=O)ccc2cc2c1occ2</td><td>Artemisia dracunculus</td><td></td><td>216.192</td><td>1.879</td><td>-3.547</td><td>4</td><td>0</td><td>48.67</td><td>C12H8O4</td><td>QXKHYNVANLEOEG-UHFFFAOYSA-N</td><td>PMID:19127719</td>
-                </tr>
-            
-                <tr>
-                    <td>METHYLEUGENOL</td><td>CID:7127</td><td>ADB122</td><td>C=CCc1ccc(c(c1)OC)OC</td><td>Artemisia dracunculus</td><td></td><td>178.23</td><td>2.548</td><td>-2.364</td><td>2</td><td>0</td><td>18.46</td><td>C11H14O2</td><td>ZYEMGPIYFIJGTP-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279,�PMID:16302761,�PMID:21953838,�PMID:27761422</td>
-                </tr>
-            
-                <tr>
-                    <td>naringenin</td><td>CID:439246</td><td>ADB123</td><td>Oc1ccc(cc1)[C@@H]1CC(=O)c2c(O1)cc(cc2O)O</td><td>Artemisia dracunculus</td><td></td><td>272.255</td><td>2.1557</td><td>-2.64</td><td>5</td><td>3</td><td>86.99</td><td>C15H12O5</td><td>FTVWIRXFELQLPI-CYBMUJFWSA-N</td><td>PMID:19127719</td>
-                </tr>
-            
-                <tr>
-                    <td>nitrofurantoin</td><td>CID:6604200</td><td>ADB124</td><td>O=C1NC(=O)N(C1)/N=C/c1ccc(o1)[N+](=O)[O-]</td><td>Artemisia dracunculus</td><td></td><td>238.159</td><td>-0.5862</td><td>-3.02</td><td>9</td><td>1</td><td>120.73</td><td>C8H6N4O5</td><td>NXFQHRVNIOXGAQ-UHFFFAOYSA-N</td><td>PMID:17140862</td>
-                </tr>
-            
-                <tr>
-                    <td>Patuletin</td><td>CID:5281678</td><td>ADB125</td><td>COc1c(O)cc2c(c1O)c(=O)c(c(o2)c1ccc(c(c1)O)O)O</td><td>Artemisia dracunculus</td><td></td><td>332.263</td><td>1.4202</td><td>-2.509</td><td>8</td><td>5</td><td>136.68</td><td>C16H12O8</td><td>JMIFIYIEXODVTO-UHFFFAOYSA-N</td><td>PMID:19127719</td>
-                </tr>
-            
-                <tr>
-                    <td>Quercetagetin</td><td>CID:5281680</td><td>ADB126</td><td>Oc1ccc(cc1O)c1oc2cc(O)c(c(c2c(=O)c1O)O)O</td><td>Artemisia dracunculus</td><td></td><td>318.236</td><td>1.1445</td><td>-2.195</td><td>8</td><td>6</td><td>147.68</td><td>C15H10O8</td><td>ZVOLCUVKHLEPEV-UHFFFAOYSA-N</td><td>PMID:19127719</td>
-                </tr>
-            
-                <tr>
-                    <td>quercetin</td><td>CID:5280343</td><td>ADB127</td><td>Oc1cc(O)c2c(c1)oc(c(c2=O)O)c1ccc(c(c1)O)O</td><td>Artemisia dracunculus</td><td></td><td>302.237</td><td>1.4902</td><td>-2.491</td><td>7</td><td>5</td><td>127.45</td><td>C15H10O7</td><td>REFJWTPEDVJJIY-UHFFFAOYSA-N</td><td>PMID:19127719</td>
-                </tr>
-            
-                <tr>
-                    <td>Rhamnocitrin</td><td>CID:5320946</td><td>ADB128</td><td>COc1cc(O)c2c(c1)oc(c(c2=O)O)c1ccc(cc1)O</td><td>Artemisia dracunculus</td><td></td><td>300.265</td><td>2.1116</td><td>-3.101</td><td>6</td><td>3</td><td>96.22</td><td>C16H12O6</td><td>MQSZRBPYXNEFHF-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>Scoparone</td><td>CID:8417</td><td>ADB129</td><td>COc1cc2oc(=O)ccc2cc1OC</td><td>Artemisia dracunculus</td><td></td><td>206.196</td><td>1.3574</td><td>-2.406</td><td>4</td><td>0</td><td>44.76</td><td>C11H10O4</td><td>GUAFOGOEJLSQBT-UHFFFAOYSA-N</td><td>PMID:19127719</td>
-                </tr>
-            
-                <tr>
-                    <td>scopoletin</td><td>CID:5280460</td><td>ADB130</td><td>COc1cc2ccc(=O)oc2cc1O</td><td>Artemisia dracunculus</td><td></td><td>192.17</td><td>1.0817</td><td>-2.092</td><td>4</td><td>1</td><td>55.76</td><td>C10H8O4</td><td>RODXRVNMMDRFIK-UHFFFAOYSA-N</td><td>PMID:19127719,�PMID:25076224</td>
-                </tr>
-            
-                <tr>
-                    <td>Vitamin P</td><td>CID:24832108</td><td>ADB131</td><td>Oc1cc(O)c2c(c1)oc(c(c2=O)O[C@@H]1O[C@H](CO[C@H]2O[C@@H](C)[C@@H]([C@H]([C@H]2O)O)O)[C@H]([C@@H]([C@H]1O)O)O)c1ccc(c(c1)O)O</td><td>Artemisia dracunculus</td><td></td><td>610.519</td><td>-1.2573</td><td>-2.398</td><td>16</td><td>10</td><td>265.52</td><td>C27H30O16</td><td>IKGXIBQEEMLURG-ZAOVRDDHSA-N</td><td>PMID:19127719</td>
-                </tr>
-            
-                <tr>
-                    <td>.alpha.-Santonin</td><td>CID:736052</td><td>ADB132</td><td>C[C@H]1C(=O)O[C@@H]2[C@@H]1CC[C@]1(C2=C(C)C(=O)C=C1)C</td><td>Artemisia maritima</td><td></td><td>246.305</td><td>1.8467</td><td>-2.704</td><td>3</td><td>0</td><td>43.37</td><td>C15H18O3</td><td>XJHDMGJURBVLLE-KAKFMGRLSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>artemin</td><td>CID:14413453</td><td>ADB133</td><td>O=C1O[C@H]2[C@H]([C@@H]1C)CC[C@@]1([C@]2(O)C(=C)CC[C@H]1O)C</td><td>Artemisia maritima</td><td></td><td>266.336</td><td>1.0624</td><td>-2.634</td><td>4</td><td>2</td><td>66.76</td><td>C15H22O4</td><td>CJLHTKGWEUGORV-JWAKXMNJSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>Artemisin</td><td>CID:65030</td><td>ADB134</td><td>O[C@H]1C[C@@]2(C)C=CC(=O)C(=C2[C@@H]2[C@@H]1[C@H](C)C(=O)O2)C</td><td>Artemisia maritima</td><td></td><td>262.304</td><td>0.9946</td><td>-2.305</td><td>4</td><td>1</td><td>63.6</td><td>C15H18O4</td><td>LUHMMHZLDLBAKX-OXDNQEBSSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>beta-Santonin</td><td>CID:237619</td><td>ADB135</td><td>C[C@H]1C(=O)O[C@H]2[C@H]1CC[C@@]1(C2=C(C)C(=O)C=C1)C</td><td>Artemisia maritima</td><td></td><td>246.305</td><td>1.8467</td><td>-2.704</td><td>3</td><td>0</td><td>43.37</td><td>C15H18O3</td><td>XJHDMGJURBVLLE-CXXVEVEQSA-N</td><td>ISBN:978-0-387-70637-5</td>
-                </tr>
-            
-                <tr>
-                    <td>cis-Hydroxydavanone</td><td>CID:5477854</td><td>ADB136</td><td>C=CC1(C)CCC(O1)C(C(=O)/C=C/C(O)(C)C)C</td><td>Artemisia maritima</td><td></td><td>252.353</td><td>2.3062</td><td>-2.709</td><td>3</td><td>1</td><td>46.53</td><td>C15H24O3</td><td>WQUKMIHCFQFPQG-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>Davanone</td><td>CID:6429031</td><td>ADB137</td><td>C=C[C@@]1(C)CC[C@H](O1)C(C(=O)CC=C(C)C)C</td><td>Artemisia maritima</td><td></td><td>236.354</td><td>3.5538</td><td>-3.123</td><td>2</td><td>0</td><td>26.3</td><td>C15H24O2</td><td>FJKKZNIYYVEYOL-ZRNAQANOSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>MARITIMIN</td><td>CASID:81241-39-6</td><td>ADB138</td><td>C[C@@H]1C(=O)O[C@H]2[C@H]1CC[C@@]1([C@]32O[C@]3(C)CCC1=O)C</td><td>Artemisia maritima</td><td></td><td>264.32</td><td>0.9633</td><td>-2.813</td><td>4</td><td>0</td><td>55.9</td><td>C15H20O4</td><td>FKWYQLQOMUGIDI-CQSFIRGISA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>santonin</td><td>CID:221071</td><td>ADB139</td><td>C[C@@H]1C(=O)O[C@H]2[C@H]1CC[C@@]1(C2=C(C)C(=O)C=C1)C</td><td>Artemisia maritima</td><td></td><td>246.305</td><td>1.8467</td><td>-2.704</td><td>3</td><td>0</td><td>43.37</td><td>C15H18O3</td><td>XJHDMGJURBVLLE-OMCHNSJMSA-N</td><td>DOI:10.15482/USDA.ADC/1239279, ISBN:978-0-387-70637-5</td>
-                </tr>
-            
-                <tr>
-                    <td>(-)-Alloaromadendrene</td><td>CID:10899740</td><td>ADB140</td><td>C[C@@H]1CC[C@H]2[C@@H]1[C@H]1[C@H](C1(C)C)CCC2=C</td><td>Artemisia pallens</td><td></td><td>204.356</td><td>3.998</td><td>-3.792</td><td>0</td><td>0</td><td>0</td><td>C15H24</td><td>ITYNGVSTWVVPIC-MRTXSQPYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>(-)-alpha-Gurjunene</td><td>CID:16213731</td><td>ADB141</td><td>C[C@@H]1CC[C@@H]2[C@H](C3=C(CCC13)C)C2(C)C</td><td>Artemisia pallens</td><td></td><td>204.356</td><td>4.0906</td><td>-3.589</td><td>0</td><td>0</td><td>0</td><td>C15H24</td><td>SPCXZDDGSGTVAW-GBYJQIJCSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>2-ACETYL-5-METHYLFURAN</td><td>CID:14514</td><td>ADB142</td><td>Cc1ccc(o1)C(=O)C</td><td>Artemisia pallens</td><td></td><td>124.139</td><td>1.1174</td><td>-2.35</td><td>2</td><td>0</td><td>30.21</td><td>C7H8O2</td><td>KEFJLCGVTHRGAH-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>2-Methyl-2,5-divinyltetrahydrofuran</td><td>CHEMSPIDER:28716879</td><td>ADB143</td><td>C=CC1CCC(O1)(C)C=C</td><td>Artemisia pallens</td><td></td><td>138.209</td><td>2.0312</td><td>-2.274</td><td>1</td><td>0</td><td>9.23</td><td>C9H14O</td><td>BYXCYPBKZWWZIN-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>6-epi-.beta.-Cubebene</td><td>CID:6431139</td><td>ADB144</td><td>CC([C@@H]1CCC(C23C1C2C(=C)CC3)C)C</td><td>Artemisia pallens</td><td></td><td>204.356</td><td>4.0594</td><td>-3.792</td><td>0</td><td>0</td><td>0</td><td>C15H24</td><td>FSRZGYRCMPZNJF-KNXMPVSZSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>7-epi-.alpha.-eudesmol</td><td>CID:6428428</td><td>ADB145</td><td>CC1=CCC[C@]2(C1C[C@H](CC2)C(O)(C)C)C</td><td>Artemisia pallens</td><td></td><td>222.37</td><td>3.5602</td><td>-3.309</td><td>1</td><td>1</td><td>20.23</td><td>C15H26O</td><td>FCSRUSQUAVXUKK-RMTCENKZSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>Artemone</td><td>CID:12308610</td><td>ADB146</td><td>C=CC1(C)CCC(O1)C(C(=O)C(C=C)(C)C)C</td><td>Artemisia pallens</td><td></td><td>236.354</td><td>3.3438</td><td>-3.233</td><td>2</td><td>0</td><td>26.3</td><td>C15H24O2</td><td>GJHJZCGMDGIUKC-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>BETA-CADINENE</td><td>CID:10657</td><td>ADB147</td><td>CC1=CC[C@@H]2[C@@H](C1)[C@@H](CC=C2C)C(C)C</td><td>Artemisia pallens</td><td></td><td>204.356</td><td>4.253</td><td>-3.478</td><td>0</td><td>0</td><td>0</td><td>C15H24</td><td>USDOQCCMRDNVAH-QLFBSQMISA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>BETA-CARYOPHYLLENE</td><td>CID:5281515</td><td>ADB148</td><td>C/C/1=CCCC(=C)[C@@H]2[C@@H](CC1)C(C2)(C)C</td><td>Artemisia pallens</td><td></td><td>204.356</td><td>5.4861</td><td>-3.662</td><td>0</td><td>0</td><td>0</td><td>C15H24</td><td>NPNUFJAVOOONJE-ZIAGYGMSSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>beta-Maaliene</td><td>CID:101596917</td><td>ADB149</td><td>�CC1=C2[C@H]3[C@H](C3(C)C)CC[C@@]2(CCC1)C</td><td>Artemisia pallens</td><td></td><td>204.356</td><td>4.1528</td><td>-3.606</td><td>0</td><td>0</td><td>0</td><td>C15H24</td><td>UPGLJTCDRBIZKP-KYOSRNDESA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>Bicycloelemene</td><td>CID:101973934</td><td>ADB150</td><td>�C=C[C@@]1(C)CC[C@@H]2[C@H]([C@@H]1C(=C)C)C2(C)C</td><td>Artemisia pallens</td><td></td><td>204.356</td><td>4.5705</td><td>-3.662</td><td>0</td><td>0</td><td>0</td><td>C15H24</td><td>LKQMMFFQYMYQOJ-COMQUAJESA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>Bicyclogermacrene</td><td>CID:44583886</td><td>ADB151</td><td>CC1=CCC/C(=C/[C@H]2[C@@H](CC1)C2(C)C)/C</td><td>Artemisia pallens</td><td></td><td>204.356</td><td>5.5318</td><td>-3.495</td><td>0</td><td>0</td><td>0</td><td>C15H24</td><td>VPDZRSSKICPUEY-TZLNTQKWSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>Cinnamyl cinnamate</td><td>CID:1550890</td><td>ADB152</td><td>O=C(/C=C/c1ccccc1)OC/C=C/c1ccccc1</td><td>Artemisia pallens</td><td></td><td>264.323</td><td>4.0811</td><td>-3.967</td><td>2</td><td>0</td><td>26.3</td><td>C18H16O2</td><td>NQBWNECTZUOWID-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>cis-Linalool oxide, carbamate</td><td>CID:91752909</td><td>ADB153</td><td>C=C[C@@]1(C)CC[C@H](O1)C(OC(=O)N)(C)C</td><td>Artemisia pallens</td><td></td><td>213.276</td><td>1.4376</td><td>-2.718</td><td>4</td><td>1</td><td>61.55</td><td>C11H19NO3</td><td>FMWFOHCSIFNDTM-KWQFWETISA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>cis-threo-Davanafuran</td><td>CID:91746618</td><td>ADB154</td><td>C[C@H](c1ccc(o1)C)[C@@H]1CC[C@](O1)(C)C=C</td><td>Artemisia pallens</td><td></td><td>220.311</td><td>3.2183</td><td>-3.618</td><td>2</td><td>0</td><td>22.37</td><td>C14H20O2</td><td>RZQBBGYIEUNQIV-XBFCOCLRSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
-                </tr>
-            
-                <tr>
-                    <td>(E)-.beta.-Farnesene</td><td>CID:10407</td><td>ADB155</td><td>C=CC(=C)CCC=C(CCC=C(C)C)C</td><td>Artemisia sieversiana</td><td></td><td>204.356</td><td>6.465</td><td>-3.478</td><td>0</td><td>0</td><td>0</td><td>C15H24</td><td>JSNRRGGBADWTMC-UHFFFAOYSA-N</td><td>PMID:20730967</td>
-                </tr>
-            
-                <tr>
-                    <td>BETA-CARYOPHYLLENE</td><td>CID:5281515</td><td>ADB156</td><td>C/C/1=CCCC(=C)[C@@H]2[C@@H](CC1)C(C2)(C)C</td><td>Artemisia sieversiana</td><td></td><td>204.356</td><td>5.4861</td><td>-3.662</td><td>0</td><td>0</td><td>0</td><td>C15H24</td><td>NPNUFJAVOOONJE-ZIAGYGMSSA-N</td><td>PMID:20730967</td>
-                </tr>
-            
-                <tr>
-                    <td>Eucalyptol</td><td>CID:2758</td><td>ADB157</td><td>CC12CCC(CC1)C(O2)(C)C</td><td>Artemisia sieversiana</td><td></td><td>154.252</td><td>2.1095</td><td>-2.481</td><td>1</td><td>0</td><td>9.23</td><td>C10H18O</td><td>WEEGYLXZBRQIMU-UHFFFAOYSA-N</td><td>PMID:20730967</td>
-                </tr>
-            
-                <tr>
-                    <td>Geranyl butyrate</td><td>CID:5355856</td><td>ADB158</td><td>�CCCC(=O)OC/C=C(/CCC=C(C)C)C</td><td>Artemisia sieversiana</td><td></td><td>224.343</td><td>4.8787</td><td>-2.839</td><td>2</td><td>0</td><td>26.3</td><td>C14H24O2</td><td>ZSBOMYJPSRFZAL-UHFFFAOYSA-N</td><td>PMID:20730967</td>
-                </tr>
-            
-                <tr>
-                    <td>L(-)-Borneol</td><td>CID:10049</td><td>ADB159</td><td>O[C@@H]1C[C@@H]2C([C@]1(C)CC2)(C)C</td><td>Artemisia sieversiana</td><td></td><td>154.252</td><td>2.0356</td><td>-2.401</td><td>1</td><td>1</td><td>20.23</td><td>C10H18O</td><td>DTGKSKDOIYIVQL-NQMVMOMDSA-N</td><td>PMID:20730967</td>
-                </tr>
-            
-                <tr>
-                    <td>(+)-alpha-phellandrene</td><td>CID:443160</td><td>ADB160</td><td>CC1=CC[C@H](C=C1)C(C)C</td><td>Artemisia vestita</td><td></td><td>136.237</td><td>2.8834</td><td>-2.408</td><td>0</td><td>0</td><td>0</td><td>C10H16</td><td>OGLDWXZKYODSOB-SNVBAGLBSA-N</td><td>ISBN:978-0-387-70637-5</td>
-                </tr>
-            
-                <tr>
-                    <td>ALPHA-TERPINENE</td><td>CID:7462</td><td>ADB161</td><td>CC1=CC=C(CC1)C(C)C</td><td>Artemisia vestita</td><td></td><td>136.237</td><td>3.0543</td><td>-2.372</td><td>0</td><td>0</td><td>0</td><td>C10H16</td><td>YHQGMYUVUMAZJR-UHFFFAOYSA-N</td><td>ISBN:978-0-387-70637-5</td>
-                </tr>
-            
-                <tr>
-                    <td>ALPHA-TERPINYL ACETATE</td><td>CID:111037</td><td>ADB162</td><td>CC(=O)OC(C1CCC(=CC1)C)(C)C</td><td>Artemisia vestita</td><td></td><td>196.289</td><td>2.7839</td><td>-2.596</td><td>2</td><td>0</td><td>26.3</td><td>C12H20O2</td><td>IGODOXYLBBXFDW-LLVKDONJSA-N</td><td>ISBN:978-0-387-70637-5</td>
-                </tr>
-            
-                <tr>
-                    <td>alpha,beta-Thujone</td><td>CID:10931629</td><td>ADB163</td><td>O=C1C[C@]2([C@@H](C1C)C2)C(C)C</td><td>Artemisia vestita</td><td></td><td>152.236</td><td>2.1785</td><td>-2.435</td><td>1</td><td>0</td><td>17.07</td><td>C10H16O</td><td>USMNOWBWPHYOEA-CFGJQEBVSA-N</td><td>ISBN:978-0-387-70637-5</td>
-                </tr>
-            
-                <tr>
-                    <td>Citral</td><td>CID:638011</td><td>ADB164</td><td>O=C/C=C(/CCC=C(C)C)C</td><td>Artemisia vestita</td><td></td><td>152.236</td><td>3.273</td><td>-2.104</td><td>1</td><td>0</td><td>17.07</td><td>C10H16O</td><td>WTEVQBCEXWBHNA-UHFFFAOYSA-N</td><td>ISBN:978-0-387-70637-5</td>
-                </tr>
-            
-                <tr>
-                    <td>Eucalyptol</td><td>CID:2758</td><td>ADB165</td><td>CC12CCC(CC1)C(O2)(C)C</td><td>Artemisia vestita</td><td></td><td>154.252</td><td>2.1095</td><td>-2.481</td><td>1</td><td>0</td><td>9.23</td><td>C10H18O</td><td>WEEGYLXZBRQIMU-UHFFFAOYSA-N</td><td>ISBN:978-0-387-70637-5</td>
-                </tr>
-            
-                <tr>
-                    <td>iso-3-Thujyl acetate</td><td>CID:524251</td><td>ADB166</td><td>CC(=O)OC1CC2(C(C1C)C2)C(C)C</td><td>Artemisia vestita</td><td></td><td>196.289</td><td>2.5194</td><td>-2.794</td><td>2</td><td>0</td><td>26.3</td><td>C12H20O2</td><td>RYMWIDNPMDLHRP-UHFFFAOYSA-N</td><td>ISBN:978-0-387-70637-5</td>
-                </tr>
-            
-                <tr>
-                    <td>nerol</td><td>CID:643820</td><td>ADB167</td><td>OC/C=C(CCC=C(C)C)/C</td><td>Artemisia vestita</td><td></td><td>154.252</td><td>3.4853</td><td>-1.889</td><td>1</td><td>1</td><td>20.23</td><td>C10H18O</td><td>GLZPCOQZEFWAFX-UHFFFAOYSA-N</td><td>ISBN:978-0-387-70637-5</td>
-                </tr>
-            
-                <tr>
-                    <td>p-Menthan-9-ol, cis-</td><td>CID:346868</td><td>ADB168</td><td>�OCC(C1CCC(CC1)C)C</td><td>Artemisia vestita</td><td></td><td>156.268</td><td>2.3366</td><td>-2.393</td><td>1</td><td>1</td><td>20.23</td><td>C10H20O</td><td>GOKHLKYATMBASR-KYHHOPLUSA-N</td><td>ISBN:978-0-387-70637-5</td>
-                </tr>
-            
-                <tr>
-                    <td>Thujyl alcohol</td><td>CID:10550</td><td>ADB169</td><td>OC1CC2(C(C1C)C2)C(C)C</td><td>Artemisia vestita</td><td></td><td>154.252</td><td>2.0348</td><td>-2.384</td><td>1</td><td>1</td><td>20.23</td><td>C10H18O</td><td>DZVXRFMREAADPP-UHFFFAOYSA-N</td><td>ISBN:978-0-387-70637-5</td>
-                </tr>
-            
-                <tr>
-                    <td>alpha,beta-Thujone</td><td>CID:10931629</td><td>ADB170</td><td>O=C1C[C@]2([C@@H](C1C)C2)C(C)C</td><td>Artemisia vulgaris</td><td></td><td>152.236</td><td>2.1785</td><td>-2.435</td><td>1</td><td>0</td><td>17.07</td><td>C10H16O</td><td>USMNOWBWPHYOEA-CFGJQEBVSA-N</td><td>ISBN:978-0-387-70637-5</td>
-                </tr>
-            
-                <tr>
-                    <td>Citral</td><td>CID:638011</td><td>ADB171</td><td>O=C/C=C(/CCC=C(C)C)C</td><td>Artemisia vulgaris</td><td></td><td>152.236</td><td>3.273</td><td>-2.104</td><td>1</td><td>0</td><td>17.07</td><td>C10H16O</td><td>WTEVQBCEXWBHNA-UHFFFAOYSA-N</td><td>ISBN:978-0-387-70637-5</td>
-                </tr>
-            
-                <tr>
-                    <td>Eucalyptol</td><td>CID:2758</td><td>ADB172</td><td>CC12CCC(CC1)C(O2)(C)C</td><td>Artemisia vulgaris</td><td></td><td>154.252</td><td>2.1095</td><td>-2.481</td><td>1</td><td>0</td><td>9.23</td><td>C10H18O</td><td>WEEGYLXZBRQIMU-UHFFFAOYSA-N</td><td>ISBN:978-0-387-70637-5</td>
-                </tr>
-            
-            </tbody>
-        </table>
+                    <tr>
+                        <td>Tea extract</td><td>CID:11980943</td><td>ADB002</td><td>OC1C(COC(=O)c2cc(O)c(c(c2)O)O)OC(C(C1OC(=O)c1cc(O)c(c(c1)O)O)O)OC(=O)c1cc(O)c(c(c1)O)O.CN1C(=O)C2N(C)C=NC2N(C1=O)C.Oc1cc2OC(c3ccc(c(c3)O)O)C(Cc2c(c1)O)O</td><td>Artemisia abrotanum</td><td></td><td>1122.95</td><td>0.0531</td><td>-1.825</td><td>18</td><td>11</td><td>310.66</td><td>C8H12N4O2.C27H24O18.C15H14O6</td><td>NIEGILROZYGXMJ-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
+                    </tr>
+                
+                    <tr>
+                        <td>2,4-Dihydroxycinnamic acid</td><td>CID:446611</td><td>ADB003</td><td>OC(=O)/C=C/c1ccc(cc1O)O</td><td>Artemisia abrotanum</td><td></td><td>180.159</td><td>0.7825</td><td>-1.407</td><td>4</td><td>3</td><td>77.76</td><td>C9H8O4</td><td>HGEFWFBFQKWVMY-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
+                    </tr>
+                
+                    <tr>
+                        <td>3-Hydroxycoumarin</td><td>CID:13650</td><td>ADB004</td><td>O=c1oc2ccccc2cc1O</td><td>Artemisia abrotanum</td><td></td><td>162.144</td><td>0.9976</td><td>-2.301</td><td>3</td><td>1</td><td>46.53</td><td>C9H6O3</td><td>MJKVTPMWOKAVMS-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
+                    </tr>
+                
+                    <tr>
+                        <td>3-O-caffeoyl-D-quinic acid</td><td>CID:1794426</td><td>ADB005</td><td>O=C(O[C@@H]1C[C@@](O)(C[C@H]([C@H]1O)O)C(=O)[O-])/C=C/c1ccc(c(c1)O)O</td><td>Artemisia abrotanum</td><td></td><td>353.302</td><td>-2.8445</td><td>-1.496</td><td>9</td><td>5</td><td>167.58</td><td>C16H17O9</td><td>CWVRJTMFETXNAD-NCZKRNLISA-M</td><td>DOI:10.15482/USDA.ADC/1239279</td>
+                    </tr>
+                
+                    <tr>
+                        <td>adenine</td><td>CID:190</td><td>ADB006</td><td>Nc1ncnc2c1[nH]cn2</td><td>Artemisia abrotanum</td><td></td><td>135.13</td><td>-0.347</td><td>-2.269</td><td>5</td><td>2</td><td>80.48</td><td>C5H5N5</td><td>GFFGJBXGBJISGV-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
+                    </tr>
+                
+                    <tr>
+                        <td>adenosine</td><td>CID:60961</td><td>ADB007</td><td>OC[C@H]1O[C@H]([C@@H]([C@@H]1O)O)n1cnc2c1ncnc2N</td><td>Artemisia abrotanum</td><td></td><td>267.244</td><td>-1.7396</td><td>-2.325</td><td>9</td><td>4</td><td>139.54</td><td>C10H13N5O4</td><td>OIRDTQYFTABQOQ-XJCFNFQFSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
+                    </tr>
+                
+                    <tr>
+                        <td>Calycanthoside</td><td>CID:5318566</td><td>ADB008</td><td>OC[C@H]1O[C@@H](Oc2c(OC)cc3c(c2OC)oc(=O)cc3)[C@@H]([C@H]([C@@H]1O)O)O</td><td>Artemisia abrotanum</td><td></td><td>384.336</td><td>-0.9776</td><td>-1.996</td><td>10</td><td>4</td><td>144.14</td><td>C17H20O10</td><td>IKUQEFGEUOOPGY-OYUDGZIASA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
+                    </tr>
+                
+                    <tr>
+                        <td>CHOLINE CHLORIDE</td><td>CID:6209</td><td>ADB009</td><td>OCC[N+](C)(C)C.[Cl-]</td><td>Artemisia abrotanum</td><td></td><td>139.625</td><td>-3.5938</td><td>0.665</td><td>2</td><td>1</td><td>20.23</td><td>Cl.C5H14NO</td><td>SGMZJAMFUVOLNK-UHFFFAOYSA-M</td><td>DOI:10.15482/USDA.ADC/1239279</td>
+                    </tr>
+                
+                    <tr>
+                        <td>guanine</td><td>CID:764</td><td>ADB010</td><td>GUANINE</td><td>Artemisia abrotanum</td><td></td><td>157.938</td><td>0</td><td>-0.53</td><td>2</td><td>2</td><td>24.06</td><td>H3N2I</td><td>Unknown element(s): ?</td><td>DOI:10.15482/USDA.ADC/1239279</td>
+                    </tr>
+                
+                    <tr>
+                        <td>Isofraxidin</td><td>CID:5318565</td><td>ADB011</td><td>COc1c(O)c(OC)cc2c1oc(=O)cc2</td><td>Artemisia abrotanum</td><td></td><td>222.195</td><td>1.0117</td><td>-2.11</td><td>5</td><td>1</td><td>64.99</td><td>C11H10O5</td><td>HOEVRHHMDJKUMZ-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
+                    </tr>
+                
+                    <tr>
+                        <td>scopoletin</td><td>CID:5280460</td><td>ADB012</td><td>COc1cc2ccc(=O)oc2cc1O</td><td>Artemisia abrotanum</td><td></td><td>192.17</td><td>1.0817</td><td>-2.092</td><td>4</td><td>1</td><td>55.76</td><td>C10H8O4</td><td>RODXRVNMMDRFIK-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
+                    </tr>
+                
+                    <tr>
+                        <td>Scopolin</td><td>CID:439514</td><td>ADB013</td><td>OC[C@H]1O[C@@H](Oc2cc3oc(=O)ccc3cc2OC)[C@@H]([C@H]([C@@H]1O)O)O</td><td>Artemisia abrotanum</td><td></td><td>354.31</td><td>-0.9076</td><td>-1.978</td><td>9</td><td>4</td><td>134.91</td><td>C16H18O9</td><td>SGTCGCCQZOUMJJ-DPZJBDQQSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
+                    </tr>
+                
+                    <tr>
+                        <td>uric acid</td><td>CID:1175</td><td>ADB014</td><td>�O=c1[nH]c2c([nH]1)[nH]c(=O)[nH]c2=O</td><td>Artemisia abrotanum</td><td></td><td>168.112</td><td>-1.208</td><td>-2.98</td><td>7</td><td>4</td><td>99.33</td><td>C5H4N4O3</td><td>LEHOTFFKMJEONL-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
+                    </tr>
+                
+                    <tr>
+                        <td>Vitamin P</td><td>CID:24832108</td><td>ADB015</td><td>Oc1cc(O)c2c(c1)oc(c(c2=O)O[C@@H]1O[C@H](CO[C@H]2O[C@@H](C)[C@@H]([C@H]([C@H]2O)O)O)[C@H]([C@@H]([C@H]1O)O)O)c1ccc(c(c1)O)O</td><td>Artemisia abrotanum</td><td></td><td>610.519</td><td>-1.2573</td><td>-2.398</td><td>16</td><td>10</td><td>265.52</td><td>C27H30O16</td><td>IKGXIBQEEMLURG-ZAOVRDDHSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
+                    </tr>
+                
+                    <tr>
+                        <td>Absinthin</td><td>CID:442138</td><td>ADB016</td><td>�C[C@@H]1C(=O)O[C@H]2[C@H]1CC[C@]([C@H]1C2=C(C)</td><td>Artemisia absinthium</td><td></td><td>496.642</td><td>2.9039</td><td>-4.881</td><td>6</td><td>2</td><td>93.06</td><td>C30H40O6</td><td>PZHWYURJZAPXAN-AZZSOBJZSA-N</td><td>DOI:10.15482/USDA.ADC/1239279, ISBN:978-0-387-70637-5</td>
+                    </tr>
+                
+                    <tr>
+                        <td>ACHILLICIN</td><td>CASID:71616-00-7</td><td>ADB017</td><td>CC(=O)O[C@H]1C[C@](C)(O)C2=CCC(=C2[C@@H]2[C@@H]1[C@H](C)C(=O)O2)C</td><td>Artemisia absinthium</td><td></td><td>306.357</td><td>1.4729</td><td>-2.56</td><td>5</td><td>1</td><td>72.83</td><td>C17H22O5</td><td>ZPTLTKQKVWFFNY-NGHUGOKISA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
+                    </tr>
+                
+                    <tr>
+                        <td>alpha,beta-Thujone</td><td>CID:10931629</td><td>ADB018</td><td>O=C1C[C@]2([C@@H](C1C)C2)C(C)C</td><td>Artemisia absinthium</td><td></td><td>152.236</td><td>2.1785</td><td>-2.435</td><td>1</td><td>0</td><td>17.07</td><td>C10H16O</td><td>USMNOWBWPHYOEA-CFGJQEBVSA-N</td><td>DOI:10.15482/USDA.ADC/1239279, ISBN:978-0-387-70637-5,�PMID:15896935,�PMID:21988529,�PMID:28472675</td>
+                    </tr>
+                
+                    <tr>
+                        <td>Anabsin</td><td>CID:15945690</td><td>ADB019</td><td>CC1C(=O)OC2[C@H]1CC[C@](C1C2=C(C)C2C1C1C3C42[C@H]2OC(=O)[C@H](C2CC[C@@]3(O[C@@]4([C@@H]1O)C)C)C)(C)O</td><td>Artemisia absinthium</td><td></td><td>512.641</td><td>1.8873</td><td>-4.777</td><td>7</td><td>2</td><td>102.29</td><td>C30H40O7</td><td>OVZIMEDUADJHPN-LMMKITJGSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
+                    </tr>
+                
+                    <tr>
+                        <td>anabsinthin</td><td>CID:44558930</td><td>ADB020</td><td>C[C@@H]1C(=O)O[C@H]2[C@H]1CC[C@]([C@H]1C2=C(C)[C@H]2[C@@H]1[C@@H]1[C@@H]3[C@@]42[C@H]2OC(=O)[C@H]([C@@H]2CC[C@@]3(O[C@]4(C1)C)C)C)(C)O</td><td>Artemisia absinthium</td><td></td><td>496.642</td><td>2.7394</td><td>-5.176</td><td>6</td><td>1</td><td>82.06</td><td>C30H40O6</td><td>XDKZYFZYOVAAKJ-QMSUMFIDSA-N</td><td>DOI:10.15482/USDA.ADC/1239279, ISBN:978-0-387-70637-5</td>
+                    </tr>
+                
+                    <tr>
+                        <td>Arabsin</td><td>CID:101596915</td><td>ADB021</td><td>C[C@H]1C(=O)O[C@H]2[C@H]1CC[C@@]1([C@@H]2[C@H](C)C(=O)C[C@H]1O)C</td><td>Artemisia absinthium</td><td></td><td>266.336</td><td>1.2036</td><td>-2.833</td><td>4</td><td>1</td><td>63.6</td><td>C15H22O4</td><td>YRFWEPYMRLGVBZ-XTFLLQPZSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
+                    </tr>
+                
+                    <tr>
+                        <td>Artabin</td><td>CID:90471461</td><td>ADB022</td><td>C/C/1=C/C[C@H](O)/C(=C[C@@H]2[C@@H](CC1)[C@@H](C)C(=O)O2)/C</td><td>Artemisia absinthium</td><td></td><td>250.337</td><td>3.1877</td><td>-2.77</td><td>3</td><td>1</td><td>46.53</td><td>C15H22O3</td><td>RLHPCSSGTQNSJN-MQYQWHSLSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
+                    </tr>
+                
+                    <tr>
+                        <td>Artabsin</td><td>CID:442146</td><td>ADB023</td><td>O=C1O[C@H]2[C@H]([C@@H]1C)CC[C@](C1=CCC(=C21)C)(C)O</td><td>Artemisia absinthium</td><td></td><td>248.321</td><td>1.8404</td><td>-2.549</td><td>3</td><td>1</td><td>46.53</td><td>C15H20O3</td><td>BXBCLQRTBGRRDB-VWFLFCASSA-N</td><td>DOI:10.15482/USDA.ADC/1239279, ISBN:978-0-387-70637-5</td>
+                    </tr>
+                
+                    <tr>
+                        <td>artabsinolide A</td><td>CASID:82078-63-5</td><td>ADB024</td><td>C[C@@H]1C(=O)O[C@H]2[C@H]1CC[C@](C1=C2[C@](C)(O)CC1=O)(C)O</td><td>Artemisia absinthium</td><td></td><td>280.319</td><td>0.4131</td><td>-2.015</td><td>5</td><td>2</td><td>83.83</td><td>C15H20O5</td><td>ZSOYDVICJGNUTP-PCYISMBMSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
+                    </tr>
+                
+                    <tr>
+                        <td>Artemetin</td><td>CID:5320351</td><td>ADB025</td><td>COc1ccc(cc1OC)c1oc2cc(OC)c(c(c2c(=O)c1OC)O)OC</td><td>Artemisia absinthium</td><td></td><td>388.371</td><td>2.6752</td><td>-3.579</td><td>8</td><td>1</td><td>92.68</td><td>C20H20O8</td><td>RIGYMJVFEJNCKD-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
+                    </tr>
+                
+                    <tr>
+                        <td>azulene</td><td>CID:9231</td><td>ADB026</td><td>c1ccc2c(cc1)ccc2</td><td>Artemisia absinthium</td><td></td><td>128.174</td><td>1.9462</td><td>-1.884</td><td>0</td><td>0</td><td>0</td><td>C10H8</td><td>CUFNKYGDVFVPHO-UHFFFAOYSA-N</td><td>ISBN:978-0-387-70637-5</td>
+                    </tr>
+                
+                    <tr>
+                        <td>Azulene, 7-ethyl-3,6-dihydro-1,4-dimethyl-</td><td>CID:71349359</td><td>ADB027</td><td>CCC1=CC2=C(C(=CC1)C)CC=C2C</td><td>Artemisia absinthium</td><td></td><td>186.297</td><td>3.9966</td><td>-2.754</td><td>0</td><td>0</td><td>0</td><td>C14H18</td><td>NVMJWYJTLVURAS-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
+                    </tr>
+                
+                    <tr>
+                        <td>eupatin</td><td>CASID:19587-65-6</td><td>ADB028</td><td>COc1cc2oc(c3ccc(c(c3)O)OC)c(c(=O)c2c(c1OC)O)O</td><td>Artemisia absinthium</td><td></td><td>360.317</td><td>1.9716</td><td>-3.137</td><td>8</td><td>3</td><td>114.68</td><td>C18H16O8</td><td>ZZEQOHMDRQUMMH-UHFFFAOYSA-N</td><td>ISBN:978-0-387-70637-5</td>
+                    </tr>
+                
+                    <tr>
+                        <td>Lignans machilin F</td><td>CID:13844301</td><td>ADB029</td><td>COc1cc(ccc1O)[C@H]1O[C@H]([C@@H]([C@@H]1C)C)c1ccc2c(c1)OCO2</td><td>Artemisia absinthium</td><td></td><td>342.39</td><td>3.8127</td><td>-3.932</td><td>5</td><td>1</td><td>57.15</td><td>C20H22O5</td><td>JPDORDSJPIKURD-RWLOKEPNSA-N</td><td>ISBN:978-0-387-70637-5</td>
+                    </tr>
+                
+                    <tr>
+                        <td>.alpha.-Bergamotol</td><td>CID:91749656</td><td>ADB030</td><td>OC/C(=C/CC[C@]1(C)C2CC=C(C1C2)C)/C</td><td>Artemisia annua</td><td></td><td>220.355</td><td>3.9661</td><td>-2.988</td><td>1</td><td>1</td><td>20.23</td><td>C15H24O</td><td>JGINTSAQGRHGMG-YMAMQOFZSA-N</td><td>DOI:10.15482/USDA.ADC/1239279, ISBN:9780415272124</td>
+                    </tr>
+                
+                    <tr>
+                        <td>2,3-Dehydro-1,8-cineole</td><td>CID:523035</td><td>ADB031</td><td>CC12CCC(C=C1)C(O2)(C)C</td><td>Artemisia annua</td><td></td><td>152.236</td><td>1.8341</td><td>-2.253</td><td>1</td><td>0</td><td>9.23</td><td>C10H16O</td><td>LOOYOTLEOHYYOV-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279, ISBN:9780415272124</td>
+                    </tr>
+                
+                    <tr>
+                        <td>3,3,6-Trimethylhepta-1,5-dien-4-ol</td><td>CID:100197</td><td>ADB032</td><td>C=CC(C(C=C(C)C)O)(C)C</td><td>Artemisia annua</td><td></td><td>154.252</td><td>3.1802</td><td>-2.107</td><td>1</td><td>1</td><td>20.23</td><td>C10H18O</td><td>WPPVSYVQAKQNJK-SECBINFHSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
+                    </tr>
+                
+                    <tr>
+                        <td>3,5-Dihydroxy-7,3',4',5'-tetramethoxyflavone</td><td>CID:44259639</td><td>ADB033</td><td>COc1cc(O)c2c(c1)oc(c(c2=O)O)c1cc(OC)c(c(c1)OC)OC</td><td>Artemisia annua</td><td></td><td>374.344</td><td>2.2473</td><td>-3.451</td><td>8</td><td>2</td><td>103.68</td><td>C19H18O8</td><td>XNIAWIUYUMBOBR-UHFFFAOYSA-N</td><td>DOI:10.1002/ffj.2730070315,�DOI:10.15482/USDA.ADC/1239279</td>
+                    </tr>
+                
+                    <tr>
+                        <td>6-methoxykaempferol</td><td>CID:5377945</td><td>ADB034</td><td>COc1c(O)cc2c(c1O)c(=O)c(c(o2)c1ccc(cc1)O)O</td><td>Artemisia annua</td><td></td><td>316.264</td><td>1.7659</td><td>-2.805</td><td>7</td><td>4</td><td>116.45</td><td>C16H12O7</td><td>OGQSUSFDBWGFFJ-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
+                    </tr>
+                
+                    <tr>
+                        <td>6-Methylhepta-3,5-dien-2-one</td><td>CID:5370101</td><td>ADB035</td><td>CC(=C/C=C/C(=O)C)C</td><td>Artemisia annua</td><td></td><td>124.182</td><td>2.2982</td><td>-1.654</td><td>1</td><td>0</td><td>17.07</td><td>C8H12O</td><td>KSKXSFZGARKWOW-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
+                    </tr>
+                
+                    <tr>
+                        <td>Axillarin</td><td>CHEMSPIDER:4444922</td><td>ADB036</td><td>COc1c(O)cc2c(c1O)c(=O)c(c(o2)c1ccc(c(c1)O)O)OC</td><td>Artemisia annua</td><td></td><td>346.29</td><td>1.8481</td><td>-2.637</td><td>8</td><td>4</td><td>125.68</td><td>C17H14O8</td><td>KIGVXRGRNLQNNI-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
+                    </tr>
+                
+                    <tr>
+                        <td>CHEMBL1684147</td><td>CID:52918154</td><td>ADB037</td><td>Cc1oc2cc(O)c(c(c2c(=O)c1)O)O</td><td>Artemisia annua</td><td></td><td>208.169</td><td>1.0411</td><td>-2.026</td><td>5</td><td>3</td><td>86.99</td><td>C10H8O5</td><td>HEVICQKVVHUFCP-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279, ISBN:9780415272124</td>
+                    </tr>
+                
+                    <tr>
+                        <td>Eucalyptol</td><td>CID:2758</td><td>ADB038</td><td>CC12CCC(CC1)C(O2)(C)C</td><td>Artemisia annua</td><td></td><td>154.252</td><td>2.1095</td><td>-2.481</td><td>1</td><td>0</td><td>9.23</td><td>C10H18O</td><td>WEEGYLXZBRQIMU-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
+                    </tr>
+                
+                    <tr>
+                        <td>Isofraxidin</td><td>CID:5318565</td><td>ADB039</td><td>COc1c(O)c(OC)cc2c1oc(=O)cc2</td><td>Artemisia annua</td><td></td><td>222.195</td><td>1.0117</td><td>-2.11</td><td>5</td><td>1</td><td>64.99</td><td>C11H10O5</td><td>HOEVRHHMDJKUMZ-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279, ISBN:9780415272124</td>
+                    </tr>
+                
+                    <tr>
+                        <td>Pinocarvone</td><td>CID:121719</td><td>ADB040</td><td>C=C1C(=O)CC2CC1C2(C)C</td><td>Artemisia annua</td><td></td><td>150.22</td><td>2.0909</td><td>-2.338</td><td>1</td><td>0</td><td>17.07</td><td>C10H14O</td><td>TZDMGBLPGZXHJI-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
+                    </tr>
+                
+                    <tr>
+                        <td>Phytosterols</td><td>CID:12303662</td><td>ADB041</td><td>CC[C@H](C(C)C)CC[C@H]([C@H]1CCC2[C@]1(C)CC[C@H]1[C@H]2CC=C2[C@]1(C)CC[C@@H](C2)O)C</td><td>Artemisia capillaris</td><td></td><td>414.715</td><td>7.8552</td><td>-6.669</td><td>1</td><td>1</td><td>20.23</td><td>C29H50O</td><td>KZJWDPNRJALLNS-ZYMAIBADSA-N</td><td>PMID:15706895</td>
+                    </tr>
+                
+                    <tr>
+                        <td>UNII-0V56HXQ8N5</td><td>CID:12303902</td><td>ADB042</td><td>CC([C@@H]1CC[C@@]2([C@@H]3[C@H]1[C@H]2C(=CC3)C)C)C</td><td>Artemisia capillaris</td><td></td><td>204.356</td><td>3.9811</td><td>-3.625</td><td>0</td><td>0</td><td>0</td><td>C15H24</td><td>VLXDPFLIRFYIME-XLWJZTARSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
+                    </tr>
+                
+                    <tr>
+                        <td>(+)-endo-beta-bergamotene</td><td>CID:12300073</td><td>ADB043</td><td>CC(=CCC[C@@]1(C)[C@H]2CCC(=C)[C@@H]1C2)C</td><td>Artemisia capillaris</td><td></td><td>204.356</td><td>4.9711</td><td>-3.662</td><td>0</td><td>0</td><td>0</td><td>C15H24</td><td>DGZBGCMPRYFWFF-KKUMJFAQSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
+                    </tr>
+                
+                    <tr>
+                        <td>(1S,2R,4S)-(-)-Bornyl acetate</td><td>CID:442460</td><td>ADB044</td><td>CC(=O)O[C@@H]1CC2C(C1(C)CC2)(C)C</td><td>Artemisia capillaris</td><td></td><td>196.289</td><td>2.5202</td><td>-2.811</td><td>2</td><td>0</td><td>26.3</td><td>C12H20O2</td><td>KGEKLUUHTZCSIP-SQLBVSGCSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
+                    </tr>
+                
+                    <tr>
+                        <td>3-Carene</td><td>CID:26049</td><td>ADB045</td><td>CC1=CCC2C(C1)C2(C)C</td><td>Artemisia capillaris</td><td></td><td>136.237</td><td>2.721</td><td>-2.519</td><td>0</td><td>0</td><td>0</td><td>C10H16</td><td>BQOFWKZOCNGFEC-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279,�PMID:21366060</td>
+                    </tr>
+                
+                    <tr>
+                        <td>3-O-caffeoyl-D-quinic acid</td><td>CID:1794426</td><td>ADB046</td><td>O=C(O[C@@H]1C[C@@](O)(C[C@H]([C@H]1O)O)C(=O)[O-])/C=C/c1ccc(c(c1)O)O</td><td>Artemisia capillaris</td><td></td><td>353.302</td><td>-2.8445</td><td>-1.496</td><td>9</td><td>5</td><td>167.58</td><td>C16H17O9</td><td>CWVRJTMFETXNAD-NCZKRNLISA-M</td><td>PMID:6242383</td>
+                    </tr>
+                
+                    <tr>
+                        <td>5-Phenyl-1,3-pentadiyne</td><td>CID:587245</td><td>ADB047</td><td>C#CC#CCc1ccccc1</td><td>Artemisia capillaris</td><td></td><td>140.185</td><td>2.581</td><td>-4.629</td><td>0</td><td>0</td><td>0</td><td>C11H8</td><td>ZZGANZXITREHOP-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
+                    </tr>
+                
+                    <tr>
+                        <td>6-Methoxyluteolin</td><td>CID:5317284</td><td>ADB048</td><td>COc1c(O)cc2c(c1O)c(=O)cc(o2)c1ccc(c(c1)O)O</td><td>Artemisia capillaris</td><td></td><td>316.264</td><td>1.92</td><td>-2.578</td><td>7</td><td>4</td><td>116.45</td><td>C16H12O7</td><td>FHHSEFRSDKWJKJ-UHFFFAOYSA-N</td><td>PMID:15719683</td>
+                    </tr>
+                
+                    <tr>
+                        <td>Agropyrene</td><td>CID:3083613</td><td>ADB049</td><td>CC#CC#CCc1ccccc1</td><td>Artemisia capillaris</td><td></td><td>154.211</td><td>3.5011</td><td>-6.491</td><td>0</td><td>0</td><td>0</td><td>C12H10</td><td>WXQYRBLGGSLJHA-UHFFFAOYSA-N</td><td>PMID:15729631,�PMID:21366060</td>
+                    </tr>
+                
+                    <tr>
+                        <td>alpha-Humulene</td><td>CID:5281520</td><td>ADB050</td><td>C/C/1=CCC(C)(C)/C=C/C/C(=C/CC1)/C</td><td>Artemisia capillaris</td><td></td><td>204.356</td><td>6.2387</td><td>-3.401</td><td>0</td><td>0</td><td>0</td><td>C15H24</td><td>FAMPSKZZVDUYOS-RTGYOGOESA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
+                    </tr>
+                
+                    <tr>
+                        <td>BETA-PINENE</td><td>CID:14896</td><td>ADB051</td><td>C=C1CCC2CC1C2(C)C</td><td>Artemisia capillaris</td><td></td><td>136.237</td><td>2.7993</td><td>-2.686</td><td>0</td><td>0</td><td>0</td><td>C10H16</td><td>WTARULDDTDQWMU-UHFFFAOYSA-N</td><td>PMID:15729631,�PMID:21366060</td>
+                    </tr>
+                
+                    <tr>
+                        <td>Capillartemisin B</td><td>CID:6439716</td><td>ADB052</td><td>OC/C(=CCc1cc(/C=C/C(=O)O)cc(c1O)CC=C(C)C)/C</td><td>Artemisia capillaris</td><td></td><td>316.396</td><td>4.2465</td><td>-3.074</td><td>4</td><td>3</td><td>77.76</td><td>C19H24O4</td><td>HEFPIIHDRLNTDN-UHFFFAOYSA-N</td><td>PMID:15706895</td>
+                    </tr>
+                
+                    <tr>
+                        <td>Cirsilineol</td><td>CID:162464</td><td>ADB053</td><td>COc1cc2oc(cc(=O)c2c(c1OC)O)c1ccc(c(c1)OC)O</td><td>Artemisia capillaris</td><td></td><td>344.318</td><td>2.4714</td><td>-3.206</td><td>7</td><td>2</td><td>94.45</td><td>C18H16O7</td><td>VKOSQMWSWLZQPA-UHFFFAOYSA-N</td><td>PMID:12774401</td>
+                    </tr>
+                
+                    <tr>
+                        <td>Cirsimaritin</td><td>CID:188323</td><td>ADB054</td><td>COc1cc2oc(cc(=O)c2c(c1OC)O)c1ccc(cc1)O</td><td>Artemisia capillaris</td><td></td><td>314.292</td><td>2.5414</td><td>-3.188</td><td>6</td><td>2</td><td>85.22</td><td>C17H14O6</td><td>ZIIAJIWLQUVGHB-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
+                    </tr>
+                
+                    <tr>
+                        <td>Demethoxycapillarisin</td><td>CID:5316511</td><td>ADB055</td><td>Oc1ccc(cc1)Oc1cc(=O)c2c(o1)cc(cc2O)O</td><td>Artemisia capillaris</td><td></td><td>286.238</td><td>2.5075</td><td>-4.218</td><td>6</td><td>3</td><td>96.22</td><td>C15H10O6</td><td>UBSCDKPKWHYZNX-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
+                    </tr>
+                
+                    <tr>
+                        <td>Dipentene</td><td>CID:22311</td><td>ADB056</td><td>�CC1=CCC(CC1)C(=C)C</td><td>Artemisia capillaris</td><td></td><td>136.237</td><td>3.3614</td><td>-2.539</td><td>0</td><td>0</td><td>0</td><td>C10H16</td><td>XMGQYMWWDOXHJM-JTQLQIEISA-N</td><td>PMID:21366060</td>
+                    </tr>
+                
+                    <tr>
+                        <td>Eucalyptol</td><td>CID:2758</td><td>ADB057</td><td>CC12CCC(CC1)C(O2)(C)C</td><td>Artemisia capillaris</td><td></td><td>154.252</td><td>2.1095</td><td>-2.481</td><td>1</td><td>0</td><td>9.23</td><td>C10H18O</td><td>WEEGYLXZBRQIMU-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
+                    </tr>
+                
+                    <tr>
+                        <td>eugenol</td><td>CID:3314</td><td>ADB058</td><td>C=CCc1ccc(c(c1)OC)O</td><td>Artemisia capillaris</td><td></td><td>164.203</td><td>2.2723</td><td>-2.05</td><td>2</td><td>1</td><td>29.46</td><td>C10H12O2</td><td>RRAFCDWBNXTKKO-UHFFFAOYSA-N</td><td>PMID:11440075</td>
+                    </tr>
+                
+                    <tr>
+                        <td>isoquercitin</td><td>CID:10813969</td><td>ADB059</td><td>OC[C@@H]1O[C@H](Oc2c(oc3c(c2=O)c(O)cc(c3)O)c2ccc(c(c2)O)O)[C@H]([C@@H]([C@H]1O)O)O</td><td>Artemisia capillaris</td><td></td><td>464.378</td><td>-0.3469</td><td>-2.191</td><td>12</td><td>8</td><td>206.6</td><td>C21H20O12</td><td>OVSQVDMCBVZWGM-UZVAKFGASA-N</td><td>PMID:15719683</td>
+                    </tr>
+                
+                    <tr>
+                        <td>Kumatakenin</td><td>CID:5318869</td><td>ADB060</td><td>COc1c(oc2c(c1=O)c(O)cc(c2)OC)c1ccc(cc1)O</td><td>Artemisia capillaris</td><td></td><td>314.292</td><td>2.5395</td><td>-3.229</td><td>6</td><td>2</td><td>85.22</td><td>C17H14O6</td><td>BJBUTJQYZDYRMJ-UHFFFAOYSA-N</td><td>PMID:15706895</td>
+                    </tr>
+                
+                    <tr>
+                        <td>MYRCENE</td><td>CID:31253</td><td>ADB061</td><td>C=CC(=C)CCC=C(C)C</td><td>Artemisia capillaris</td><td></td><td>136.237</td><td>4.2932</td><td>-2.502</td><td>0</td><td>0</td><td>0</td><td>C10H16</td><td>UAHWPYUMFXYFJY-UHFFFAOYSA-N</td><td>PMID:21366060</td>
+                    </tr>
+                
+                    <tr>
+                        <td>Oplodiol</td><td>CID:12313756</td><td>ADB062</td><td>CC(C1=CC[C@@]2([C@@H](C1)[C@@](C)(O)CC[C@H]2O)C)C</td><td>Artemisia capillaris</td><td></td><td>238.369</td><td>2.7442</td><td>-2.91</td><td>2</td><td>2</td><td>40.46</td><td>C15H26O2</td><td>SOZSXJHFVBBAOY-BARDWOONSA-N</td><td>PMID:11440075</td>
+                    </tr>
+                
+                    <tr>
+                        <td>Pectolinarigenin</td><td>CID:5320438</td><td>ADB063</td><td>COc1ccc(cc1)c1cc(=O)c2c(o1)cc(c(c2O)OC)O</td><td>Artemisia capillaris</td><td></td><td>314.292</td><td>2.5414</td><td>-3.188</td><td>6</td><td>2</td><td>85.22</td><td>C17H14O6</td><td>GPQLHGCIAUEJQK-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
+                    </tr>
+                
+                    <tr>
+                        <td>Pedalitin</td><td>CID:31161</td><td>ADB064</td><td>COc1cc2oc(cc(=O)c2c(c1O)O)c1ccc(c(c1)O)O</td><td>Artemisia capillaris</td><td></td><td>316.264</td><td>1.92</td><td>-2.578</td><td>7</td><td>4</td><td>116.45</td><td>C16H12O7</td><td>QWUHUBDKQQPMQG-UHFFFAOYSA-N</td><td>PMID:15719683</td>
+                    </tr>
+                
+                    <tr>
+                        <td>phenylephrine</td><td>CID:6041</td><td>ADB065</td><td>CNC[C@@H](c1cccc(c1)O)O</td><td>Artemisia capillaris</td><td></td><td>167.207</td><td>0.0303</td><td>-0.76</td><td>3</td><td>3</td><td>52.49</td><td>C9H13NO2</td><td>SONNWYBIRXJNDC-VIFPVBQESA-N</td><td>PMID:1830846</td>
+                    </tr>
+                
+                    <tr>
+                        <td>Sabandin;1,4-Benzoquinone</td><td>CID:46226658</td><td>ADB066</td><td>COc1c2OCOc2c(c2c1ccc(=O)o2)OC</td><td>Artemisia capillaris</td><td></td><td>250.205</td><td>1.4688</td><td>-3.117</td><td>6</td><td>0</td><td>63.22</td><td>C12H10O6</td><td>LDCAQGBKMDSYGC-UHFFFAOYSA-N</td><td>PMID:12674134</td>
+                    </tr>
+                
+                    <tr>
+                        <td>Scoparone</td><td>CID:8417</td><td>ADB067</td><td>COc1cc2oc(=O)ccc2cc1OC</td><td>Artemisia capillaris</td><td></td><td>206.196</td><td>1.3574</td><td>-2.406</td><td>4</td><td>0</td><td>44.76</td><td>C11H10O4</td><td>GUAFOGOEJLSQBT-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279,�PMID:15706895,�PMID:1830846,�PMID:2630096,�PMID:4663246</td>
+                    </tr>
+                
+                    <tr>
+                        <td>vanillin</td><td>CID:1183</td><td>ADB068</td><td>COc1cc(C=O)ccc1O</td><td>Artemisia capillaris</td><td></td><td>152.149</td><td>1.1772</td><td>-1.662</td><td>3</td><td>1</td><td>46.53</td><td>C8H8O3</td><td>MWOOGOJBHIARFG-UHFFFAOYSA-N</td><td>PMID:11440075</td>
+                    </tr>
+                
+                    <tr>
+                        <td>Tea extract</td><td>CID:11980943</td><td>ADB069</td><td>OC1C(COC(=O)c2cc(O)c(c(c2)O)O)OC(C(C1OC(=O)c1cc(O)c(c(c1)O)O)O)OC(=O)c1cc(O)c(c(c1)O)O.CN1C(=O)C2N(C)C=NC2N(C1=O)C.Oc1cc2OC(c3ccc(c(c3)O)O)C(Cc2c(c1)O)O</td><td>Artemisia cina</td><td></td><td>1122.95</td><td>0.0531</td><td>-1.825</td><td>18</td><td>11</td><td>310.66</td><td>C8H12N4O2.C27H24O18.C15H14O6</td><td>NIEGILROZYGXMJ-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
+                    </tr>
+                
+                    <tr>
+                        <td>.alpha.-Santonin</td><td>CID:736052</td><td>ADB070</td><td>C[C@H]1C(=O)O[C@@H]2[C@@H]1CC[C@]1(C2=C(C)C(=O)C=C1)C</td><td>Artemisia cina</td><td></td><td>246.305</td><td>1.8467</td><td>-2.704</td><td>3</td><td>0</td><td>43.37</td><td>C15H18O3</td><td>XJHDMGJURBVLLE-KAKFMGRLSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
+                    </tr>
+                
+                    <tr>
+                        <td>3-Carene</td><td>CID:26049</td><td>ADB071</td><td>CC1=CCC2C(C1)C2(C)C</td><td>Artemisia cina</td><td></td><td>136.237</td><td>2.721</td><td>-2.519</td><td>0</td><td>0</td><td>0</td><td>C10H16</td><td>BQOFWKZOCNGFEC-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
+                    </tr>
+                
+                    <tr>
+                        <td>ALPHA-TERPINENE</td><td>CID:7462</td><td>ADB072</td><td>CC1=CC=C(CC1)C(C)C</td><td>Artemisia cina</td><td></td><td>136.237</td><td>3.0543</td><td>-2.372</td><td>0</td><td>0</td><td>0</td><td>C10H16</td><td>YHQGMYUVUMAZJR-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
+                    </tr>
+                
+                    <tr>
+                        <td>alpha-TERPINEOL</td><td>CID:17100</td><td>ADB073</td><td>CC1=CCC(CC1)C(O)(C)C</td><td>Artemisia cina</td><td></td><td>154.252</td><td>2.2993</td><td>-2.186</td><td>1</td><td>1</td><td>20.23</td><td>C10H18O</td><td>WUOACPNHFRMFPN-SECBINFHSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
+                    </tr>
+                
+                    <tr>
+                        <td>Artemisin</td><td>CID:621620</td><td>ADB074</td><td>OC1CC2(C)C=CC(=O)C(=C2C2C1C(C)C(=O)O2)C</td><td>Artemisia cina</td><td></td><td>262.304</td><td>0.9946</td><td>-2.305</td><td>4</td><td>1</td><td>63.6</td><td>C15H18O4</td><td>LUHMMHZLDLBAKX-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
+                    </tr>
+                
+                    <tr>
+                        <td>Artemisin</td><td>CID:65030</td><td>ADB075</td><td>O[C@H]1C[C@@]2(C)C=CC(=O)C(=C2[C@@H]2[C@@H]1[C@H](C)C(=O)O2)C</td><td>Artemisia cina</td><td></td><td>262.304</td><td>0.9946</td><td>-2.305</td><td>4</td><td>1</td><td>63.6</td><td>C15H18O4</td><td>LUHMMHZLDLBAKX-OXDNQEBSSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
+                    </tr>
+                
+                    <tr>
+                        <td>betaine</td><td>CID:247</td><td>ADB076</td><td>[O-]C(=O)C[N+](C)(C)C</td><td>Artemisia cina</td><td></td><td>117.147</td><td>-6.0194</td><td>0.683</td><td>3</td><td>0</td><td>40.13</td><td>C5H11NO2</td><td>KWIUHFFTVRNATP-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
+                    </tr>
+                
+                    <tr>
+                        <td>CARVACROL</td><td>CID:10364</td><td>ADB077</td><td>CC(c1ccc(c(c1)O)C)C</td><td>Artemisia cina</td><td></td><td>150.22</td><td>2.8448</td><td>-2.535</td><td>1</td><td>1</td><td>20.23</td><td>C10H14O</td><td>RECUKUPTGUEGMW-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
+                    </tr>
+                
+                    <tr>
+                        <td>CHOLINE CHLORIDE</td><td>CID:6209</td><td>ADB078</td><td>OCC[N+](C)(C)C.[Cl-]</td><td>Artemisia cina</td><td></td><td>139.625</td><td>-3.5938</td><td>0.665</td><td>2</td><td>1</td><td>20.23</td><td>Cl.C5H14NO</td><td>SGMZJAMFUVOLNK-UHFFFAOYSA-M</td><td>DOI:10.15482/USDA.ADC/1239279</td>
+                    </tr>
+                
+                    <tr>
+                        <td>Eucalyptol</td><td>CID:2758</td><td>ADB079</td><td>CC12CCC(CC1)C(O2)(C)C</td><td>Artemisia cina</td><td></td><td>154.252</td><td>2.1095</td><td>-2.481</td><td>1</td><td>0</td><td>9.23</td><td>C10H18O</td><td>WEEGYLXZBRQIMU-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
+                    </tr>
+                
+                    <tr>
+                        <td>santonin</td><td>CID:221071</td><td>ADB080</td><td>C[C@@H]1C(=O)O[C@H]2[C@H]1CC[C@@]1(C2=C(C)C(=O)C=C1)C</td><td>Artemisia cina</td><td></td><td>246.305</td><td>1.8467</td><td>-2.704</td><td>3</td><td>0</td><td>43.37</td><td>C15H18O3</td><td>XJHDMGJURBVLLE-OMCHNSJMSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
+                    </tr>
+                
+                    <tr>
+                        <td>CID 12300199</td><td>CID:12300199</td><td>ADB081</td><td>COC1[C@H](O)C(O)C([C@@H]([C@@H]1O)O)O</td><td>Artemisia dracunculus</td><td></td><td>194.182</td><td>-2.6327</td><td>0.116</td><td>6</td><td>5</td><td>110.38</td><td>C7H14O6</td><td>DSCFFEYYQKSRSV-DQOOPODHSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
+                    </tr>
+                
+                    <tr>
+                        <td>1-Oxo-1h-2-Benzopyran-3-Carboxaldehydes</td><td>CID:12582097</td><td>ADB082</td><td>O=Cc1cc2ccccc2c(=O)o1</td><td>Artemisia dracunculus</td><td></td><td>174.155</td><td>0.8135</td><td>-2.657</td><td>3</td><td>0</td><td>43.37</td><td>C10H6O3</td><td>ALHVSADYXQWYJH-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
+                    </tr>
+                
+                    <tr>
+                        <td>10-hydroxynerol</td><td>CID:13619433</td><td>ADB083</td><td>OC/C=C(/CC/C=C(CO)/C)C</td><td>Artemisia dracunculus</td><td></td><td>170.251</td><td>2.5586</td><td>-1.382</td><td>2</td><td>2</td><td>40.46</td><td>C10H18O2</td><td>PREUOUJFXMCMSJ-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
+                    </tr>
+                
+                    <tr>
+                        <td>2-Carboxy-D-arabinitol</td><td>CID:439944</td><td>ADB084</td><td>OC[C@H]([C@H]([C@@](C(=O)O)(CO)O)O)O</td><td>Artemisia dracunculus</td><td></td><td>196.154</td><td>-3.4741</td><td>0.833</td><td>7</td><td>6</td><td>138.45</td><td>C6H12O7</td><td>XONDRGRALZTVKD-ZMIZWQJLSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
+                    </tr>
+                
+                    <tr>
+                        <td>2-HEPTANONE</td><td>CID:8051</td><td>ADB085</td><td>CCCCCC(=O)C</td><td>Artemisia dracunculus</td><td></td><td>114.187</td><td>2.1962</td><td>-1.986</td><td>1</td><td>0</td><td>17.07</td><td>C7H14O</td><td>CATSNJVOTSVZJV-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
+                    </tr>
+                
+                    <tr>
+                        <td>2,4'-dihydroxy-4-methoxydihydrochalcone</td><td>CID:14157883</td><td>ADB086</td><td>COc1ccc(c(c1)O)CCC(=O)c1ccc(cc1)O</td><td>Artemisia dracunculus</td><td></td><td>272.299</td><td>2.6657</td><td>-3.131</td><td>4</td><td>2</td><td>66.76</td><td>C16H16O4</td><td>RORZHTZYZDZJKG-UHFFFAOYSA-N</td><td>PMID:17848630</td>
+                    </tr>
+                
+                    <tr>
+                        <td>2,6-Di-tert-butyl-4-methylphenol</td><td>CID:31404</td><td>ADB087</td><td>Cc1cc(c(c(c1)C(C)(C)C)O)C(C)(C)C</td><td>Artemisia dracunculus</td><td></td><td>220.355</td><td>4.8216</td><td>-3.984</td><td>1</td><td>1</td><td>20.23</td><td>C15H24O</td><td>NLZUEZXRPGMBCV-UHFFFAOYSA-N</td><td>PMID:16302761</td>
+                    </tr>
+                
+                    <tr>
+                        <td>3-Butylisocoumarin</td><td>CID:10899690</td><td>ADB088</td><td>�CCCCc1cc2ccccc2c(=O)o1</td><td>Artemisia dracunculus</td><td></td><td>202.252</td><td>3.3157</td><td>-3.759</td><td>2</td><td>0</td><td>26.3</td><td>C13H14O2</td><td>YBZYVRHAWKKYNO-UHFFFAOYSA-N</td><td>PMID:14738379</td>
+                    </tr>
+                
+                    <tr>
+                        <td>3-Hydroxycoumarin</td><td>CID:13650</td><td>ADB089</td><td>O=c1oc2ccccc2cc1O</td><td>Artemisia dracunculus</td><td></td><td>162.144</td><td>0.9976</td><td>-2.301</td><td>3</td><td>1</td><td>46.53</td><td>C9H6O3</td><td>MJKVTPMWOKAVMS-UHFFFAOYSA-N</td><td>PMID:19127719</td>
+                    </tr>
+                
+                    <tr>
+                        <td>3'-Hydroxycorfin</td><td>CID:11229631</td><td>ADB090</td><td>CC(C#Cc1cc2ccccc2c(=O)o1)O</td><td>Artemisia dracunculus</td><td></td><td>214.219</td><td>1.9261</td><td>-5.006</td><td>3</td><td>1</td><td>46.53</td><td>C13H10O3</td><td>XNVUGJDBKZLVPX-VIFPVBQESA-N</td><td>PMID:14738379</td>
+                    </tr>
+                
+                    <tr>
+                        <td>4-Hydroxy-6,7-dimethylcoumarin</td><td>CID:54682088</td><td>ADB091</td><td>O=c1cc(O)c2c(o1)cc(c(c2)C)C</td><td>Artemisia dracunculus</td><td></td><td>190.197</td><td>1.803</td><td>-2.591</td><td>3</td><td>1</td><td>46.53</td><td>C11H10O3</td><td>AYHZQBMBPNZPEY-UHFFFAOYSA-N</td><td>PMID:19127719</td>
+                    </tr>
+                
+                    <tr>
+                        <td>4-METHOXYBENZYL ALCOHOL</td><td>CID:7738</td><td>ADB092</td><td>OCc1ccc(cc1)OC</td><td>Artemisia dracunculus</td><td></td><td>138.165</td><td>0.9923</td><td>-1.518</td><td>2</td><td>1</td><td>29.46</td><td>C8H10O2</td><td>MSHFRERJPWKJFX-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
+                    </tr>
+                
+                    <tr>
+                        <td>4-Methoxycinnamaldehyde</td><td>CID:641294</td><td>ADB093</td><td>COc1ccc(cc1)/C=C/C=O</td><td>Artemisia dracunculus</td><td></td><td>162.187</td><td>1.5412</td><td>-2.25</td><td>2</td><td>0</td><td>26.3</td><td>C10H10O2</td><td>AXCXHFKZHDEKTP-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
+                    </tr>
+                
+                    <tr>
+                        <td>5-Phenyl-1,3-pentadiyne</td><td>CID:587245</td><td>ADB094</td><td>�C#CC#CCc1ccccc1</td><td>Artemisia dracunculus</td><td></td><td>140.185</td><td>2.581</td><td>-4.629</td><td>0</td><td>0</td><td>0</td><td>C11H8</td><td>ZZGANZXITREHOP-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
+                    </tr>
+                
+                    <tr>
+                        <td>5,7-DIHYDROXY-4-METHYLCOUMARIN</td><td>CID:5354284</td><td>ADB095</td><td>Oc1cc(O)c2c(c1)oc(=O)cc2C</td><td>Artemisia dracunculus</td><td></td><td>192.17</td><td>0.8842</td><td>-1.507</td><td>4</td><td>2</td><td>66.76</td><td>C10H8O4</td><td>QNVWGEJMXOQQPM-UHFFFAOYSA-N</td><td>PMID:19127719</td>
+                    </tr>
+                
+                    <tr>
+                        <td>6-Methoxymellein</td><td>CID:83412</td><td>ADB096</td><td>CC1CC2=C(C(=CC(=C2)OC)O)C(=O)O1</td><td>Artemisia dracunculus</td><td></td><td>208.212</td><td>1.3483</td><td>-2.206</td><td>4</td><td>1</td><td>55.76</td><td>C11H12O4</td><td>AIFNAMVERSBWPS-LURJTMIESA-N</td><td>PMID:14738379</td>
+                    </tr>
+                
+                    <tr>
+                        <td>6,7-Dimethoxy-4-methylcoumarin</td><td>CID:77966</td><td>ADB097</td><td>CC1=CC(=O)OC2=CC(=C(C=C12)OC)OC</td><td>Artemisia dracunculus</td><td></td><td>220.223</td><td>1.4356</td><td>-2.135</td><td>4</td><td>0</td><td>44.76</td><td>C12H12O4</td><td>GBYDSYPGGDKWGZ-UHFFFAOYSA-N</td><td>PMID:19127719</td>
+                    </tr>
+                
+                    <tr>
+                        <td>7-Methoxycoumarin</td><td>CID:10748</td><td>ADB098</td><td>�COc1ccc2c(c1)oc(=O)cc2</td><td>Artemisia dracunculus</td><td></td><td>176.171</td><td>1.4274</td><td>-2.388</td><td>3</td><td>0</td><td>35.53</td><td>C10H8O3</td><td>LIIALPBMIOVAHH-UHFFFAOYSA-N</td><td>PMID:19127719,�PMID:25076224,�PMID:26982075</td>
+                    </tr>
+                
+                    <tr>
+                        <td>8-Acetyl-7-hydroxycoumarin</td><td>CID:5411574</td><td>ADB099</td><td>O=c1ccc2c(o1)c(C(=O)C)c(cc2)O</td><td>Artemisia dracunculus</td><td></td><td>204.181</td><td>1.0229</td><td>-2.758</td><td>4</td><td>1</td><td>63.6</td><td>C11H8O4</td><td>XWYMACPLPPQCHC-UHFFFAOYSA-N</td><td>PMID:19127719</td>
+                    </tr>
+                
+                    <tr>
+                        <td>8-hydroxyartemidin</td><td>CID:44575586</td><td>ADB100</td><td>CC/C=C/c1cc2cccc(c2c(=O)o1)O</td><td>Artemisia dracunculus</td><td></td><td>216.235</td><td>2.7178</td><td>-3.235</td><td>3</td><td>1</td><td>46.53</td><td>C13H12O3</td><td>KIVJBPPONQCANS-UHFFFAOYSA-N</td><td>PMID:14738379</td>
+                    </tr>
+                
+                    <tr>
+                        <td>8-hydroxycapillarin</td><td>CID:44575587</td><td>ADB101</td><td>CC#CCc1cc2cccc(c2c(=O)o1)O</td><td>Artemisia dracunculus</td><td></td><td>214.219</td><td>2.6022</td><td>-5.109</td><td>3</td><td>1</td><td>46.53</td><td>C13H10O3</td><td>GWACCTLVSACUOC-UHFFFAOYSA-N</td><td>PMID:14738379</td>
+                    </tr>
+                
+                    <tr>
+                        <td>Agropyrene</td><td>CID:3083613</td><td>ADB102</td><td>CC#CC#CCc1ccccc1</td><td>Artemisia dracunculus</td><td></td><td>154.211</td><td>3.5011</td><td>-6.491</td><td>0</td><td>0</td><td>0</td><td>C12H10</td><td>WXQYRBLGGSLJHA-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
+                    </tr>
+                
+                    <tr>
+                        <td>Artemidin</td><td>CID:5945155</td><td>ADB103</td><td>�CC/C=C/c1cc2ccccc2c(=O)o1</td><td>Artemisia dracunculus</td><td></td><td>200.236</td><td>3.0635</td><td>-3.531</td><td>2</td><td>0</td><td>26.3</td><td>C13H12O2</td><td>DHKBMMCQVXFEJY-UHFFFAOYSA-N</td><td>DOI:10.1002/ffj.2730070315,�DOI:10.15482/USDA.ADC/1239279,�PMID:14738379</td>
+                    </tr>
+                
+                    <tr>
+                        <td>artemidinol</td><td>CID:23264915</td><td>ADB104</td><td>CC/C=C/c1oc(=O)c2c(c1)c(O)ccc2</td><td>Artemisia dracunculus</td><td></td><td>216.235</td><td>2.7178</td><td>-3.235</td><td>3</td><td>1</td><td>46.53</td><td>C13H12O3</td><td>QBZHMYUXUVZDQT-UHFFFAOYSA-N</td><td>PMID:14738379</td>
+                    </tr>
+                
+                    <tr>
+                        <td>BENOMYL</td><td>CID:28780</td><td>ADB105</td><td>CCCCNC(=O)n1c(NC(=O)OC)nc2c1cccc2</td><td>Artemisia dracunculus</td><td></td><td>290.322</td><td>2.8242</td><td>-3.893</td><td>7</td><td>2</td><td>85.25</td><td>C14H18N4O3</td><td>RIOXQFHNBCKOKP-UHFFFAOYSA-N</td><td>PMID:14738379</td>
+                    </tr>
+                
+                    <tr>
+                        <td>Capillarin</td><td>CID:3083811</td><td>ADB106</td><td>CC#CCc1cc2ccccc2c(=O)o1</td><td>Artemisia dracunculus</td><td></td><td>198.22</td><td>2.9479</td><td>-5.405</td><td>2</td><td>0</td><td>26.3</td><td>C13H10O2</td><td>KUJLPCYCQICVRM-UHFFFAOYSA-N</td><td>PMID:14738379</td>
+                    </tr>
+                
+                    <tr>
+                        <td>capillarin isovalerate</td><td>CID:11289514</td><td>ADB107</td><td>CC(CC(=O)OCC#CCc1cc2ccccc2c(=O)o1)C</td><td>Artemisia dracunculus</td><td></td><td>298.337</td><td>3.6329</td><td>-6.008</td><td>4</td><td>0</td><td>52.6</td><td>C18H18O4</td><td>VOVINARUPGPNJR-UHFFFAOYSA-N</td><td>PMID:14738379</td>
+                    </tr>
+                
+                    <tr>
+                        <td>Capillin</td><td>CID:10321</td><td>ADB108</td><td>CC#CC#CC(=O)c1ccccc1</td><td>Artemisia dracunculus</td><td></td><td>168.195</td><td>2.6128</td><td>-6.672</td><td>1</td><td>0</td><td>17.07</td><td>C12H8O</td><td>RAZOKRUZEQERLH-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
+                    </tr>
+                
+                    <tr>
+                        <td>corfin</td><td>CID:11344623</td><td>ADB109</td><td>CCC#Cc1cc2ccccc2c(=O)o1</td><td>Artemisia dracunculus</td><td></td><td>198.22</td><td>2.9479</td><td>-5.405</td><td>2</td><td>0</td><td>26.3</td><td>C13H10O2</td><td>HXCUAJOYXLPFND-UHFFFAOYSA-N</td><td>PMID:14738379</td>
+                    </tr>
+                
+                    <tr>
+                        <td>daphnetin</td><td>CID:5280569</td><td>ADB110</td><td>O=c1ccc2c(o1)c(O)c(cc2)O</td><td>Artemisia dracunculus</td><td></td><td>178.143</td><td>0.806</td><td>-1.778</td><td>4</td><td>2</td><td>66.76</td><td>C9H6O4</td><td>ATEFPOUAMCWAQS-UHFFFAOYSA-N</td><td>PMID:19127719</td>
+                    </tr>
+                
+                    <tr>
+                        <td>Demethoxycapillarisin</td><td>CID:5316511</td><td>ADB111</td><td>Oc1ccc(cc1)Oc1cc(=O)c2c(o1)cc(cc2O)O</td><td>Artemisia dracunculus</td><td></td><td>286.238</td><td>2.5075</td><td>-4.218</td><td>6</td><td>3</td><td>96.22</td><td>C15H10O6</td><td>UBSCDKPKWHYZNX-UHFFFAOYSA-N</td><td>PMID:17848630,�PMID:21798321</td>
+                    </tr>
+                
+                    <tr>
+                        <td>Dipentene</td><td>CID:22311</td><td>ADB112</td><td>�CC1=CCC(CC1)C(=C)C</td><td>Artemisia dracunculus</td><td></td><td>136.237</td><td>3.3614</td><td>-2.539</td><td>0</td><td>0</td><td>0</td><td>C10H16</td><td>XMGQYMWWDOXHJM-JTQLQIEISA-N</td><td>PMID:16302761</td>
+                    </tr>
+                
+                    <tr>
+                        <td>Esculetin</td><td>CID:5281416</td><td>ADB113</td><td>O=c1ccc2c(o1)cc(c(c2)O)O</td><td>Artemisia dracunculus</td><td></td><td>178.143</td><td>0.806</td><td>-1.778</td><td>4</td><td>2</td><td>66.76</td><td>C9H6O4</td><td>ILEDWLMCKZNDJK-UHFFFAOYSA-N</td><td>PMID:19127719</td>
+                    </tr>
+                
+                    <tr>
+                        <td>Estragole</td><td>CID:8815</td><td>ADB114</td><td>COc1ccc(cc1)CC=C</td><td>Artemisia dracunculus</td><td></td><td>148.204</td><td>2.618</td><td>-2.346</td><td>1</td><td>0</td><td>9.23</td><td>C10H12O</td><td>ZFMSMUAANRJZFM-UHFFFAOYSA-N</td><td>PMID:10843599,�PMID:21953838,�PMID:27761422</td>
+                    </tr>
+                
+                    <tr>
+                        <td>Eucalyptol</td><td>CID:2758</td><td>ADB115</td><td>CC12CCC(CC1)C(O2)(C)C</td><td>Artemisia dracunculus</td><td></td><td>154.252</td><td>2.1095</td><td>-2.481</td><td>1</td><td>0</td><td>9.23</td><td>C10H18O</td><td>WEEGYLXZBRQIMU-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
+                    </tr>
+                
+                    <tr>
+                        <td>F 1375</td><td>CID:197836</td><td>ADB116</td><td>OC(=O)c1ccccc1Cc1cc2ccccc2c(=O)o1</td><td>Artemisia dracunculus</td><td></td><td>280.278</td><td>2.8795</td><td>-4.097</td><td>4</td><td>1</td><td>63.6</td><td>C17H12O4</td><td>GCFOLLWPQAGLCM-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
+                    </tr>
+                
+                    <tr>
+                        <td>Isobutyramide</td><td>CID:68424</td><td>ADB117</td><td>CC(C)C(=O)N</td><td>Artemisia dracunculus</td><td></td><td>87.1215</td><td>-0.0242</td><td>-0.965</td><td>2</td><td>1</td><td>43.09</td><td>C4H9NO</td><td>WFKAJVHLWXSISD-UHFFFAOYSA-N</td><td>PMID:22738981</td>
+                    </tr>
+                
+                    <tr>
+                        <td>Isoferulic acid</td><td>CID:736186</td><td>ADB118</td><td>COc1ccc(cc1O)/C=C/C(=O)O</td><td>Artemisia dracunculus</td><td></td><td>194.185</td><td>1.0582</td><td>-1.721</td><td>4</td><td>2</td><td>66.76</td><td>C10H10O4</td><td>QURCVMIEKCOAJU-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
+                    </tr>
+                
+                    <tr>
+                        <td>Isoscopoletin</td><td>CID:69894</td><td>ADB119</td><td>COC1=C(C=C2C=CC(=O)OC2=C1)O</td><td>Artemisia dracunculus</td><td></td><td>192.17</td><td>1.0817</td><td>-2.092</td><td>4</td><td>1</td><td>55.76</td><td>C10H8O4</td><td>SYTYLPHCLSSCOJ-UHFFFAOYSA-N</td><td>PMID:19127719</td>
+                    </tr>
+                
+                    <tr>
+                        <td>LY294002</td><td>CID:3973</td><td>ADB120</td><td>O=c1cc(oc2c1cccc2c1ccccc1)N1CCOCC1</td><td>Artemisia dracunculus</td><td></td><td>307.348</td><td>3.4476</td><td>-5.432</td><td>4</td><td>0</td><td>38.77</td><td>C19H17NO3</td><td>CZQHHVNHHHRRDU-UHFFFAOYSA-N</td><td>PMID:17848630</td>
+                    </tr>
+                
+                    <tr>
+                        <td>methoxsalen</td><td>CID:4114</td><td>ADB121</td><td>COc1c2oc(=O)ccc2cc2c1occ2</td><td>Artemisia dracunculus</td><td></td><td>216.192</td><td>1.879</td><td>-3.547</td><td>4</td><td>0</td><td>48.67</td><td>C12H8O4</td><td>QXKHYNVANLEOEG-UHFFFAOYSA-N</td><td>PMID:19127719</td>
+                    </tr>
+                
+                    <tr>
+                        <td>METHYLEUGENOL</td><td>CID:7127</td><td>ADB122</td><td>C=CCc1ccc(c(c1)OC)OC</td><td>Artemisia dracunculus</td><td></td><td>178.23</td><td>2.548</td><td>-2.364</td><td>2</td><td>0</td><td>18.46</td><td>C11H14O2</td><td>ZYEMGPIYFIJGTP-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279,�PMID:16302761,�PMID:21953838,�PMID:27761422</td>
+                    </tr>
+                
+                    <tr>
+                        <td>naringenin</td><td>CID:439246</td><td>ADB123</td><td>Oc1ccc(cc1)[C@@H]1CC(=O)c2c(O1)cc(cc2O)O</td><td>Artemisia dracunculus</td><td></td><td>272.255</td><td>2.1557</td><td>-2.64</td><td>5</td><td>3</td><td>86.99</td><td>C15H12O5</td><td>FTVWIRXFELQLPI-CYBMUJFWSA-N</td><td>PMID:19127719</td>
+                    </tr>
+                
+                    <tr>
+                        <td>nitrofurantoin</td><td>CID:6604200</td><td>ADB124</td><td>O=C1NC(=O)N(C1)/N=C/c1ccc(o1)[N+](=O)[O-]</td><td>Artemisia dracunculus</td><td></td><td>238.159</td><td>-0.5862</td><td>-3.02</td><td>9</td><td>1</td><td>120.73</td><td>C8H6N4O5</td><td>NXFQHRVNIOXGAQ-UHFFFAOYSA-N</td><td>PMID:17140862</td>
+                    </tr>
+                
+                    <tr>
+                        <td>Patuletin</td><td>CID:5281678</td><td>ADB125</td><td>COc1c(O)cc2c(c1O)c(=O)c(c(o2)c1ccc(c(c1)O)O)O</td><td>Artemisia dracunculus</td><td></td><td>332.263</td><td>1.4202</td><td>-2.509</td><td>8</td><td>5</td><td>136.68</td><td>C16H12O8</td><td>JMIFIYIEXODVTO-UHFFFAOYSA-N</td><td>PMID:19127719</td>
+                    </tr>
+                
+                    <tr>
+                        <td>Quercetagetin</td><td>CID:5281680</td><td>ADB126</td><td>Oc1ccc(cc1O)c1oc2cc(O)c(c(c2c(=O)c1O)O)O</td><td>Artemisia dracunculus</td><td></td><td>318.236</td><td>1.1445</td><td>-2.195</td><td>8</td><td>6</td><td>147.68</td><td>C15H10O8</td><td>ZVOLCUVKHLEPEV-UHFFFAOYSA-N</td><td>PMID:19127719</td>
+                    </tr>
+                
+                    <tr>
+                        <td>quercetin</td><td>CID:5280343</td><td>ADB127</td><td>Oc1cc(O)c2c(c1)oc(c(c2=O)O)c1ccc(c(c1)O)O</td><td>Artemisia dracunculus</td><td></td><td>302.237</td><td>1.4902</td><td>-2.491</td><td>7</td><td>5</td><td>127.45</td><td>C15H10O7</td><td>REFJWTPEDVJJIY-UHFFFAOYSA-N</td><td>PMID:19127719</td>
+                    </tr>
+                
+                    <tr>
+                        <td>Rhamnocitrin</td><td>CID:5320946</td><td>ADB128</td><td>COc1cc(O)c2c(c1)oc(c(c2=O)O)c1ccc(cc1)O</td><td>Artemisia dracunculus</td><td></td><td>300.265</td><td>2.1116</td><td>-3.101</td><td>6</td><td>3</td><td>96.22</td><td>C16H12O6</td><td>MQSZRBPYXNEFHF-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
+                    </tr>
+                
+                    <tr>
+                        <td>Scoparone</td><td>CID:8417</td><td>ADB129</td><td>COc1cc2oc(=O)ccc2cc1OC</td><td>Artemisia dracunculus</td><td></td><td>206.196</td><td>1.3574</td><td>-2.406</td><td>4</td><td>0</td><td>44.76</td><td>C11H10O4</td><td>GUAFOGOEJLSQBT-UHFFFAOYSA-N</td><td>PMID:19127719</td>
+                    </tr>
+                
+                    <tr>
+                        <td>scopoletin</td><td>CID:5280460</td><td>ADB130</td><td>COc1cc2ccc(=O)oc2cc1O</td><td>Artemisia dracunculus</td><td></td><td>192.17</td><td>1.0817</td><td>-2.092</td><td>4</td><td>1</td><td>55.76</td><td>C10H8O4</td><td>RODXRVNMMDRFIK-UHFFFAOYSA-N</td><td>PMID:19127719,�PMID:25076224</td>
+                    </tr>
+                
+                    <tr>
+                        <td>Vitamin P</td><td>CID:24832108</td><td>ADB131</td><td>Oc1cc(O)c2c(c1)oc(c(c2=O)O[C@@H]1O[C@H](CO[C@H]2O[C@@H](C)[C@@H]([C@H]([C@H]2O)O)O)[C@H]([C@@H]([C@H]1O)O)O)c1ccc(c(c1)O)O</td><td>Artemisia dracunculus</td><td></td><td>610.519</td><td>-1.2573</td><td>-2.398</td><td>16</td><td>10</td><td>265.52</td><td>C27H30O16</td><td>IKGXIBQEEMLURG-ZAOVRDDHSA-N</td><td>PMID:19127719</td>
+                    </tr>
+                
+                    <tr>
+                        <td>.alpha.-Santonin</td><td>CID:736052</td><td>ADB132</td><td>C[C@H]1C(=O)O[C@@H]2[C@@H]1CC[C@]1(C2=C(C)C(=O)C=C1)C</td><td>Artemisia maritima</td><td></td><td>246.305</td><td>1.8467</td><td>-2.704</td><td>3</td><td>0</td><td>43.37</td><td>C15H18O3</td><td>XJHDMGJURBVLLE-KAKFMGRLSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
+                    </tr>
+                
+                    <tr>
+                        <td>artemin</td><td>CID:14413453</td><td>ADB133</td><td>O=C1O[C@H]2[C@H]([C@@H]1C)CC[C@@]1([C@]2(O)C(=C)CC[C@H]1O)C</td><td>Artemisia maritima</td><td></td><td>266.336</td><td>1.0624</td><td>-2.634</td><td>4</td><td>2</td><td>66.76</td><td>C15H22O4</td><td>CJLHTKGWEUGORV-JWAKXMNJSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
+                    </tr>
+                
+                    <tr>
+                        <td>Artemisin</td><td>CID:65030</td><td>ADB134</td><td>O[C@H]1C[C@@]2(C)C=CC(=O)C(=C2[C@@H]2[C@@H]1[C@H](C)C(=O)O2)C</td><td>Artemisia maritima</td><td></td><td>262.304</td><td>0.9946</td><td>-2.305</td><td>4</td><td>1</td><td>63.6</td><td>C15H18O4</td><td>LUHMMHZLDLBAKX-OXDNQEBSSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
+                    </tr>
+                
+                    <tr>
+                        <td>beta-Santonin</td><td>CID:237619</td><td>ADB135</td><td>C[C@H]1C(=O)O[C@H]2[C@H]1CC[C@@]1(C2=C(C)C(=O)C=C1)C</td><td>Artemisia maritima</td><td></td><td>246.305</td><td>1.8467</td><td>-2.704</td><td>3</td><td>0</td><td>43.37</td><td>C15H18O3</td><td>XJHDMGJURBVLLE-CXXVEVEQSA-N</td><td>ISBN:978-0-387-70637-5</td>
+                    </tr>
+                
+                    <tr>
+                        <td>cis-Hydroxydavanone</td><td>CID:5477854</td><td>ADB136</td><td>C=CC1(C)CCC(O1)C(C(=O)/C=C/C(O)(C)C)C</td><td>Artemisia maritima</td><td></td><td>252.353</td><td>2.3062</td><td>-2.709</td><td>3</td><td>1</td><td>46.53</td><td>C15H24O3</td><td>WQUKMIHCFQFPQG-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
+                    </tr>
+                
+                    <tr>
+                        <td>Davanone</td><td>CID:6429031</td><td>ADB137</td><td>C=C[C@@]1(C)CC[C@H](O1)C(C(=O)CC=C(C)C)C</td><td>Artemisia maritima</td><td></td><td>236.354</td><td>3.5538</td><td>-3.123</td><td>2</td><td>0</td><td>26.3</td><td>C15H24O2</td><td>FJKKZNIYYVEYOL-ZRNAQANOSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
+                    </tr>
+                
+                    <tr>
+                        <td>MARITIMIN</td><td>CASID:81241-39-6</td><td>ADB138</td><td>C[C@@H]1C(=O)O[C@H]2[C@H]1CC[C@@]1([C@]32O[C@]3(C)CCC1=O)C</td><td>Artemisia maritima</td><td></td><td>264.32</td><td>0.9633</td><td>-2.813</td><td>4</td><td>0</td><td>55.9</td><td>C15H20O4</td><td>FKWYQLQOMUGIDI-CQSFIRGISA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
+                    </tr>
+                
+                    <tr>
+                        <td>santonin</td><td>CID:221071</td><td>ADB139</td><td>C[C@@H]1C(=O)O[C@H]2[C@H]1CC[C@@]1(C2=C(C)C(=O)C=C1)C</td><td>Artemisia maritima</td><td></td><td>246.305</td><td>1.8467</td><td>-2.704</td><td>3</td><td>0</td><td>43.37</td><td>C15H18O3</td><td>XJHDMGJURBVLLE-OMCHNSJMSA-N</td><td>DOI:10.15482/USDA.ADC/1239279, ISBN:978-0-387-70637-5</td>
+                    </tr>
+                
+                    <tr>
+                        <td>(-)-Alloaromadendrene</td><td>CID:10899740</td><td>ADB140</td><td>C[C@@H]1CC[C@H]2[C@@H]1[C@H]1[C@H](C1(C)C)CCC2=C</td><td>Artemisia pallens</td><td></td><td>204.356</td><td>3.998</td><td>-3.792</td><td>0</td><td>0</td><td>0</td><td>C15H24</td><td>ITYNGVSTWVVPIC-MRTXSQPYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
+                    </tr>
+                
+                    <tr>
+                        <td>(-)-alpha-Gurjunene</td><td>CID:16213731</td><td>ADB141</td><td>C[C@@H]1CC[C@@H]2[C@H](C3=C(CCC13)C)C2(C)C</td><td>Artemisia pallens</td><td></td><td>204.356</td><td>4.0906</td><td>-3.589</td><td>0</td><td>0</td><td>0</td><td>C15H24</td><td>SPCXZDDGSGTVAW-GBYJQIJCSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
+                    </tr>
+                
+                    <tr>
+                        <td>2-ACETYL-5-METHYLFURAN</td><td>CID:14514</td><td>ADB142</td><td>Cc1ccc(o1)C(=O)C</td><td>Artemisia pallens</td><td></td><td>124.139</td><td>1.1174</td><td>-2.35</td><td>2</td><td>0</td><td>30.21</td><td>C7H8O2</td><td>KEFJLCGVTHRGAH-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
+                    </tr>
+                
+                    <tr>
+                        <td>2-Methyl-2,5-divinyltetrahydrofuran</td><td>CHEMSPIDER:28716879</td><td>ADB143</td><td>C=CC1CCC(O1)(C)C=C</td><td>Artemisia pallens</td><td></td><td>138.209</td><td>2.0312</td><td>-2.274</td><td>1</td><td>0</td><td>9.23</td><td>C9H14O</td><td>BYXCYPBKZWWZIN-UHFFFAOYSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
+                    </tr>
+                
+                    <tr>
+                        <td>6-epi-.beta.-Cubebene</td><td>CID:6431139</td><td>ADB144</td><td>CC([C@@H]1CCC(C23C1C2C(=C)CC3)C)C</td><td>Artemisia pallens</td><td></td><td>204.356</td><td>4.0594</td><td>-3.792</td><td>0</td><td>0</td><td>0</td><td>C15H24</td><td>FSRZGYRCMPZNJF-KNXMPVSZSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
+                    </tr>
+                
+                    <tr>
+                        <td>7-epi-.alpha.-eudesmol</td><td>CID:6428428</td><td>ADB145</td><td>CC1=CCC[C@]2(C1C[C@H](CC2)C(O)(C)C)C</td><td>Artemisia pallens</td><td></td><td>222.37</td><td>3.5602</td><td>-3.309</td><td>1</td><td>1</td><td>20.23</td><td>C15H26O</td><td>FCSRUSQUAVXUKK-RMTCENKZSA-N</td><td>DOI:10.15482/USDA.ADC/1239279</td>
+                    </tr>
+                <!-- Add the missing CSS file -->
+                <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
+
+                <!-- Add the missing JavaScript files -->
+                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+
+                <script>
+                    $(document).ready(function () {
+                        $('#coumarinTable').DataTable();
+                    });
+                </script>
