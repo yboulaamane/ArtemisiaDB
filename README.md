@@ -1,4 +1,9 @@
 # ArtemisiaDB
-![alt text](https://raw.githubusercontent.com/yboulaamane/ArtemisiaDB/main/header.png)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/yboulaamane/ArtemisiaDB/main/assets/brand/logo-dark.svg">
+  <img src="assets/brand/logo.svg" alt="ArtemisiaDB" height="96">
+</picture>
+
+*A curated database containing chemical information of secondary metabolites isolated from* Artemisia *L. species.*
 
 Artemisia is a large, diverse genus of of small herbs and shrubs with between 200 and 400 species belonging to the Asteraceae family. Due to the wide spectrum of pharmacological activities owing to the presence of several secondary metabolites, Artemisia has been used as traditional medicine since ancient times as an anthelmintic, antispasmodic, antirheumatic, and antibacterial agent and for the treatment of malaria, hepatitis, cancer, inflammation, and menstrual-related disorders. Recently, its extracts displayed promising antiviral properties against Covid-19. To help accelerate drug discovery, ArtemisiaDB was created to serve as an additional asset for high-throughput virtual screening compaigns.
